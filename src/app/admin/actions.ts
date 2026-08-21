@@ -134,6 +134,7 @@ export async function upsertProduct(formData: FormData) {
     revalidatePath(`/tienda/${existing.category}`);
   }
   revalidatePath(`/producto/${product.slug}`);
+  if (product.featured || existing?.featured) revalidatePath("/");
   redirect("/admin/productos?guardado=1");
 }
 
@@ -146,6 +147,7 @@ export async function deleteProduct(formData: FormData) {
   revalidatePath("/admin/productos");
   revalidatePath("/tienda");
   if (removed) revalidatePath(`/tienda/${removed.category}`);
+  if (removed?.featured) revalidatePath("/");
   redirect("/admin/productos?eliminado=1");
 }
 
@@ -160,6 +162,7 @@ export async function toggleProductActive(formData: FormData) {
   revalidatePath("/admin/productos");
   revalidatePath("/tienda");
   if (toggled) revalidatePath(`/tienda/${toggled.category}`);
+  if (toggled?.featured) revalidatePath("/");
 }
 
 export async function updateOrderStatus(formData: FormData) {

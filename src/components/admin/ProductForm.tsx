@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { CATEGORIES } from "@/lib/categories";
 import { formatCOP } from "@/lib/format";
 import ImageUploader, { type ImageUploaderHandle } from "./ImageUploader";
+import SubmitButton from "./SubmitButton";
 import type { Product, Settings } from "@/lib/types";
 
 const input =
@@ -359,12 +360,12 @@ export default function ProductForm({
             ))}
           </div>
 
-          <button
-            type="submit"
-            className="w-full bg-ink py-4 text-[0.7rem] uppercase tracking-[0.2em] text-bone hover:bg-espresso"
+          <SubmitButton
+            pendingLabel="Guardando…"
+            className="w-full bg-ink py-4 text-[0.7rem] uppercase tracking-[0.2em] text-bone hover:bg-espresso disabled:cursor-not-allowed disabled:opacity-60"
           >
             Guardar
-          </button>
+          </SubmitButton>
         </div>
 
         {onDelete && product && (
@@ -373,14 +374,14 @@ export default function ProductForm({
               Eliminar es permanente. Si solo querés sacarlo de la tienda,
               desmarcá «Visible».
             </p>
-            <button
-              type="submit"
+            <SubmitButton
               formAction={onDelete}
               formNoValidate
-              className="mt-4 w-full border border-clay/50 py-3 text-[0.68rem] uppercase tracking-[0.16em] text-clay-deep hover:bg-clay/10"
+              pendingLabel="Eliminando…"
+              className="mt-4 w-full border border-clay/50 py-3 text-[0.68rem] uppercase tracking-[0.16em] text-clay-deep hover:bg-clay/10 disabled:cursor-not-allowed disabled:opacity-60"
             >
               Eliminar producto
-            </button>
+            </SubmitButton>
           </div>
         )}
       </aside>
