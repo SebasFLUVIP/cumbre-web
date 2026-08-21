@@ -53,7 +53,7 @@ export default async function TiendaPage() {
 
       <header className="border-b border-line">
         <div className="shell py-12 md:py-16">
-          <p className="max-w-2xl text-[0.98rem] font-light leading-relaxed text-mute">
+          <p className="max-w-2xl text-[1.05rem] font-light leading-relaxed text-mute">
             Objetos elegidos uno por uno, con las manos. Fibras tejidas,
             maderas macizas, piedra y cerámica torneada: piezas que envejecen
             bien y que le dan a cada rincón la calidez que no se compra hecha.

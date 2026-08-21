@@ -47,7 +47,7 @@ export default async function ConfirmacionPage({ searchParams }: Search) {
           {approved ? "Pedido confirmado" : pending ? "En proceso" : "Pago"}
         </p>
         <h1 className="display mt-5 text-[2.4rem] md:text-[3.4rem]">{title}</h1>
-        <p className="mx-auto mt-6 max-w-lg text-[0.98rem] font-light leading-relaxed text-mute">
+        <p className="mx-auto mt-6 max-w-lg text-[1.05rem] font-light leading-relaxed text-mute">
           {body}
         </p>
 

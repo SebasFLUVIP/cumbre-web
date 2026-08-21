@@ -107,7 +107,7 @@ export default async function AdminLeads() {
                   </dl>
 
                   {l.message && (
-                    <p className="mt-4 border-l-2 border-clay/40 pl-4 text-[0.87rem] font-light leading-relaxed text-mute">
+                    <p className="mt-4 border-l-2 border-clay/40 pl-4 text-[0.95rem] font-light leading-relaxed text-mute">
                       {l.message}
                     </p>
                   )}

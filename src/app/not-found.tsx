@@ -7,7 +7,7 @@ export default function NotFound() {
       <h1 className="display mt-5 text-[2.6rem] md:text-[3.6rem]">
         Esta página no existe
       </h1>
-      <p className="mt-5 max-w-md text-[0.95rem] font-light leading-relaxed text-mute">
+      <p className="mt-5 max-w-md text-[1.02rem] font-light leading-relaxed text-mute">
         Puede que la hayamos movido o que el enlace esté mal escrito. Volvé a la
         tienda o contanos qué estabas buscando.
       </p>

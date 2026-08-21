@@ -79,7 +79,7 @@ export default function LeadForm({
     return (
       <div className="py-10 text-center">
         <p className="font-display text-3xl font-light">Gracias, ya nos llegó</p>
-        <p className="mx-auto mt-4 max-w-sm text-[0.92rem] font-light leading-relaxed text-mute">
+        <p className="mx-auto mt-4 max-w-sm text-[1rem] font-light leading-relaxed text-mute">
           Te respondemos en menos de 24 horas hábiles con una propuesta de
           alcance y un rango de inversión.
         </p>

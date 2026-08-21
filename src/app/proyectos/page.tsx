@@ -51,7 +51,7 @@ export default function ProyectosPage() {
           <h1 className="display mt-4 max-w-3xl text-[2.6rem] md:text-[4rem]">
             Cada proyecto, una travesía hacia la calma
           </h1>
-          <p className="mt-7 max-w-2xl text-[0.98rem] font-light leading-relaxed text-mute">
+          <p className="mt-7 max-w-2xl text-[1.05rem] font-light leading-relaxed text-mute">
             Un espacio no se termina cuando se instala el último mueble, sino
             cuando alguien entra y baja los hombros sin darse cuenta. Hacia eso
             trabajamos: proyectos integrales de interiorismo y remodelación en
@@ -84,7 +84,7 @@ export default function ProyectosPage() {
                 </h2>
               </div>
               <div className="md:col-span-5">
-                <p className="text-[0.95rem] font-light leading-relaxed text-mute">
+                <p className="text-[1.02rem] font-light leading-relaxed text-mute">
                   {hero.summary}
                 </p>
                 <span className="mt-5 inline-block text-[0.7rem] uppercase tracking-[0.18em] link-underline">
@@ -136,7 +136,7 @@ export default function ProyectosPage() {
                 <h3 className="mt-2 font-display text-[1.35rem] font-light">
                   {s.t}
                 </h3>
-                <p className="mt-3 text-[0.85rem] font-light leading-relaxed text-mute">
+                <p className="mt-3 text-[0.94rem] font-light leading-relaxed text-mute">
                   {s.d}
                 </p>
               </Reveal>
@@ -153,7 +153,7 @@ export default function ProyectosPage() {
             <h2 className="display mt-4 text-[2.1rem] md:text-[2.9rem]">
               Contanos qué querés resolver
             </h2>
-            <p className="mt-6 text-[0.95rem] font-light leading-relaxed text-mute">
+            <p className="mt-6 text-[1.02rem] font-light leading-relaxed text-mute">
               No hace falta que tengas todo claro. Con una foto del espacio y
               una idea de lo que te gustaría lograr, alcanza para empezar.
             </p>

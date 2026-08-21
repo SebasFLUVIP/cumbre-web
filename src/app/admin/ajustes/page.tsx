@@ -186,7 +186,7 @@ export default async function AdminAjustes({
             </dd>
           </div>
         </dl>
-        <p className="mt-5 max-w-2xl text-[0.82rem] font-light leading-relaxed text-mute">
+        <p className="mt-5 max-w-2xl text-[0.93rem] font-light leading-relaxed text-mute">
           Las llaves de Wompi se cargan en el archivo{" "}
           <code className="font-mono text-[0.78rem]">.env.local</code> (o en las
           variables de entorno del hosting), no desde acá: son secretos y no

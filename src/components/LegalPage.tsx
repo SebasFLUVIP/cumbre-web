@@ -23,7 +23,7 @@ export default function LegalPage({
                 {s.p.map((para, i) => (
                   <p
                     key={i}
-                    className="text-[0.95rem] font-light leading-[1.85] text-mute"
+                    className="text-[1.02rem] font-light leading-[1.85] text-mute"
                   >
                     {para}
                   </p>

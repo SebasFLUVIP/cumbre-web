@@ -108,7 +108,7 @@ export default async function HomePage() {
             lo natural. Creemos que tu casa tiene que contar tu historia.
           </p>
           <div className="mx-auto mt-10 h-px w-16 bg-clay" />
-          <p className="mt-8 text-[0.95rem] font-light leading-relaxed text-mute">
+          <p className="mt-8 text-[1.02rem] font-light leading-relaxed text-mute">
             Trabajamos con madera que envejece bien, piedra que guarda el
             frío de la mañana y fibras tejidas a mano por artesanas
             colombianas. Materiales que no buscan llamar la atención: buscan
@@ -210,7 +210,7 @@ export default async function HomePage() {
             <h2 className="display mt-4 text-[2.2rem] md:text-[3rem]">
               Una travesía hacia la casa que imaginaste
             </h2>
-            <p className="mt-6 text-[0.95rem] font-light leading-relaxed text-mute">
+            <p className="mt-6 text-[1.02rem] font-light leading-relaxed text-mute">
               No entregamos una carpeta de planos: entregamos una casa que ya
               sabe recibir. Distribución, materiales, luz, muebles hechos a tu
               medida y montaje. De los apartamentos de Bogotá a las casas de
@@ -293,7 +293,7 @@ export default async function HomePage() {
             <h2 className="display mt-4 text-[2.2rem] md:text-[3rem]">
               La primera llamada no tiene costo
             </h2>
-            <p className="mt-6 text-[0.95rem] font-light leading-relaxed text-mute">
+            <p className="mt-6 text-[1.02rem] font-light leading-relaxed text-mute">
               Contanos qué espacio querés resolver y hacemos una primera
               llamada o videollamada sin costo. De ahí salís con una propuesta
               de alcance y un rango de inversión, sin compromiso. La visita al
@@ -348,7 +348,7 @@ export default async function HomePage() {
             <h2 className="display mt-3 text-[1.9rem] md:text-[2.5rem]">
               Cumbre en Colombia, Cufania en Argentina
             </h2>
-            <p className="mt-5 max-w-2xl text-[0.95rem] font-light leading-relaxed text-mute">
+            <p className="mt-5 max-w-2xl text-[1.02rem] font-light leading-relaxed text-mute">
               Si te mudás de Colombia a Argentina —o al revés— no empezás de
               cero. Trabajamos con Cufania Home en Buenos Aires: te recibimos
               del otro lado con el mismo criterio, el mismo acompañamiento y una

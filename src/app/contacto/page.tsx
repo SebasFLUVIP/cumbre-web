@@ -20,7 +20,7 @@ export default async function ContactoPage() {
           <h1 className="display mt-4 text-[2.6rem] md:text-[3.6rem]">
             Hablemos de tu casa
           </h1>
-          <p className="mt-6 text-[0.98rem] font-light leading-relaxed text-mute">
+          <p className="mt-6 text-[1.05rem] font-light leading-relaxed text-mute">
             Escribinos por donde te quede más cómodo. Respondemos en menos de 24
             horas hábiles.
           </p>
@@ -65,7 +65,7 @@ export default async function ContactoPage() {
             </div>
             <div>
               <dt className="eyebrow">Dónde trabajamos</dt>
-              <dd className="mt-2 text-[0.93rem] font-light leading-relaxed text-mute">
+              <dd className="mt-2 text-[1rem] font-light leading-relaxed text-mute">
                 Bogotá y la sabana · Anapoima · Villeta
                 <br />
                 Envíos de tienda a toda Colombia.

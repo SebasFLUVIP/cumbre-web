@@ -44,7 +44,7 @@ export default function CufaniaPage() {
             <br />
             Cufania en Argentina
           </h1>
-          <p className="mt-7 max-w-2xl text-[0.98rem] font-light leading-relaxed text-mute">
+          <p className="mt-7 max-w-2xl text-[1.05rem] font-light leading-relaxed text-mute">
             Mudarse de país es empezar de nuevo en todo, menos en una cosa: la
             casa puede estar esperándote. Lo último que querés al aterrizar es
             no saber dónde comprar una cama, quién hace un espaldar a medida o
@@ -70,7 +70,7 @@ export default function CufaniaPage() {
             <h2 className="display text-[2rem] md:text-[2.7rem]">
               Un mismo criterio, en los dos países
             </h2>
-            <div className="mt-6 space-y-5 text-[0.96rem] font-light leading-[1.8] text-mute">
+            <div className="mt-6 space-y-5 text-[1.03rem] font-light leading-[1.8] text-mute">
               <p>
                 Trabajamos con Cufania Home, un estudio de Buenos Aires con el
                 que compartimos la manera de ver las cosas: materiales
@@ -116,7 +116,7 @@ export default function CufaniaPage() {
                 <h3 className="mt-2 font-display text-[1.35rem] font-light">
                   {p.t}
                 </h3>
-                <p className="mt-3 text-[0.87rem] font-light leading-relaxed text-mute">
+                <p className="mt-3 text-[0.95rem] font-light leading-relaxed text-mute">
                   {p.d}
                 </p>
               </Reveal>
@@ -132,7 +132,7 @@ export default function CufaniaPage() {
             <h2 className="display mt-4 text-[2.1rem] md:text-[2.9rem]">
               Contanos a dónde te mudás
             </h2>
-            <p className="mt-6 text-[0.95rem] font-light leading-relaxed text-mute">
+            <p className="mt-6 text-[1.02rem] font-light leading-relaxed text-mute">
               Cuanto antes empecemos, más tranquila es la llegada. Lo ideal es
               hablar dos o tres meses antes de la mudanza.
             </p>

@@ -49,7 +49,7 @@ export default function NosotrasPage() {
               piezas que vendemos en la tienda. Nos mueve lo mismo desde el
               principio: lo esencial, lo hecho a mano y lo que dura.
             </p>
-            <p className="mt-5 text-[0.95rem] font-light leading-relaxed text-mute">
+            <p className="mt-5 text-[1.02rem] font-light leading-relaxed text-mute">
               Nos metemos en todo: la distribución, la luz, el mueble que hay
               que mandar a hacer, el proveedor que se demora. Preferimos
               entregar la casa vestida y lista antes que dejar una carpeta de
@@ -91,7 +91,7 @@ export default function NosotrasPage() {
             Cumbre no es una tendencia que seguimos. Es la manera en que ya
             nos gustaba trabajar.
           </p>
-          <div className="mt-10 space-y-6 text-[0.98rem] font-light leading-[1.85] text-mute">
+          <div className="mt-10 space-y-6 text-[1.05rem] font-light leading-[1.85] text-mute">
             <p>
               Te acompañamos en desarrollar proyectos integrales y asesorías de
               diseño de interiores, para ayudarte a armar ambientes funcionales.
@@ -122,7 +122,7 @@ export default function NosotrasPage() {
               <Reveal key={v.t} delay={i * 80}>
                 <h2 className="font-display text-[1.7rem] font-light">{v.t}</h2>
                 <div className="mt-3 h-px w-10 bg-clay" />
-                <p className="mt-4 text-[0.9rem] font-light leading-relaxed text-mute">
+                <p className="mt-4 text-[0.98rem] font-light leading-relaxed text-mute">
                   {v.d}
                 </p>
               </Reveal>

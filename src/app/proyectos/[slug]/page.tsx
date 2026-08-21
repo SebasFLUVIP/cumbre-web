@@ -61,7 +61,7 @@ export default async function ProyectoPage({ params }: Params) {
             </p>
             <div className="mt-10 space-y-6">
               {p.body.map((para, i) => (
-                <p key={i} className="text-[0.98rem] font-light leading-[1.85] text-mute">
+                <p key={i} className="text-[1.05rem] font-light leading-[1.85] text-mute">
                   {para}
                 </p>
               ))}
@@ -104,7 +104,7 @@ export default async function ProyectoPage({ params }: Params) {
                     />
                   </div>
                   {g.caption && (
-                    <figcaption className="mt-3 text-[0.82rem] font-light leading-relaxed text-mute">
+                    <figcaption className="mt-3 text-[0.93rem] font-light leading-relaxed text-mute">
                       {g.caption}
                     </figcaption>
                   )}
@@ -122,7 +122,7 @@ export default async function ProyectoPage({ params }: Params) {
             <h2 className="display mt-4 text-[2.1rem] md:text-[2.9rem]">
               ¿Querés algo así en tu casa?
             </h2>
-            <p className="mt-6 text-[0.95rem] font-light leading-relaxed text-mute">
+            <p className="mt-6 text-[1.02rem] font-light leading-relaxed text-mute">
               Cada proyecto empieza igual: una llamada sin costo para entender
               el espacio y lo que necesitás.
             </p>

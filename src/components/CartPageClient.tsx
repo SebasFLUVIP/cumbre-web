@@ -135,7 +135,7 @@ export default function CartPageClient({
                   {formatCOP(subtotalCOP)}
                 </span>
               </div>
-              <p className="mt-5 text-[0.82rem] font-light leading-relaxed text-mute">
+              <p className="mt-5 text-[0.93rem] font-light leading-relaxed text-mute">
                 {missing > 0 ? (
                   <>
                     Te faltan{" "}

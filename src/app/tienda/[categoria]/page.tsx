@@ -48,7 +48,7 @@ export default async function CategoriaPage({ params }: Params) {
             <h1 className="display mt-5 text-[2.6rem] md:text-[4rem]">
               {cat.name}
             </h1>
-            <p className="mt-6 max-w-xl text-[0.98rem] font-light leading-relaxed text-mute">
+            <p className="mt-6 max-w-xl text-[1.05rem] font-light leading-relaxed text-mute">
               {cat.description}
             </p>
           </div>

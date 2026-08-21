@@ -45,7 +45,7 @@ function Spec({ label, value }: { label: string; value?: string }) {
   return (
     <div className="border-b border-line py-4">
       <dt className="eyebrow">{label}</dt>
-      <dd className="mt-1.5 text-[0.9rem] font-light leading-relaxed text-mute">
+      <dd className="mt-1.5 text-[0.98rem] font-light leading-relaxed text-mute">
         {value}
       </dd>
     </div>
@@ -117,7 +117,7 @@ export default async function ProductoPage({ params }: Params) {
             <h1 className="display mt-2 text-[2.3rem] md:text-[2.9rem]">
               {product.name}
             </h1>
-            <p className="mt-4 text-[0.98rem] font-light leading-relaxed text-mute">
+            <p className="mt-4 text-[1.05rem] font-light leading-relaxed text-mute">
               {product.excerpt}
             </p>
 
@@ -127,21 +127,21 @@ export default async function ProductoPage({ params }: Params) {
 
             <ul className="mt-8 space-y-2.5 border-t border-line pt-7 text-[0.85rem] font-light text-mute">
               <li className="flex gap-3">
-                <span className="text-clay">—</span>
+                <span className="text-clay-deep">—</span>
                 {deliveryLabel(product.delivery)}
               </li>
               <li className="flex gap-3">
-                <span className="text-clay">—</span>
+                <span className="text-clay-deep">—</span>
                 Envío gratis en compras desde{" "}
                 {formatCOP(settings.freeShippingThresholdCOP)}
               </li>
               <li className="flex gap-3">
-                <span className="text-clay">—</span>
+                <span className="text-clay-deep">—</span>
                 Pagá con tarjeta, PSE o Nequi
               </li>
               {product.madeToOrder && (
                 <li className="flex gap-3">
-                  <span className="text-clay">—</span>
+                  <span className="text-clay-deep">—</span>
                   Se fabrica a pedido y se puede ajustar a tu medida
                 </li>
               )}
@@ -164,7 +164,7 @@ export default async function ProductoPage({ params }: Params) {
               <p className="font-display text-xl font-light">
                 ¿La querés en otra medida o acabado?
               </p>
-              <p className="mt-2 text-[0.87rem] font-light leading-relaxed text-mute">
+              <p className="mt-2 text-[0.95rem] font-light leading-relaxed text-mute">
                 Fabricamos a medida. Escribinos con la medida exacta y te
                 cotizamos sin compromiso.
               </p>

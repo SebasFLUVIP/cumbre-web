@@ -427,6 +427,12 @@ if __name__ == "__main__":
         # de la home, que se veia pixelada a ancho completo de pantalla.
         to_lifestyle('sala-chimenea.jpg', 'sala-chimenea', ratios=R)
 
+        # Tres fotos para los bloques de Servicios (02, 03, 04).
+        to_lifestyle('pacifica-materiales.jpg', 'pacifica-materiales', ratios=R)
+        to_lifestyle('pacifica-sala-doble-altura.jpg', 'pacifica-sala-doble-altura',
+                     ratios=R, cool=0.4, sat=0.94)
+        to_lifestyle('estudio-a-medida.jpg', 'estudio-a-medida', ratios=R)
+
         # El retrato va sin grading de marca, pero sí con balance de blancos:
         # la toma se hizo con luz de tarde sobre muros crema y el archivo sale
         # con una dominante ámbar que tiñe las camisas blancas.

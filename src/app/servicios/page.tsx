@@ -44,7 +44,7 @@ const SERVICIOS = [
       "Una ronda de ajustes",
     ],
     para: "Un espacio puntual: sala, habitación principal, terraza, apartamento pequeño.",
-    image: "/img/proyectos/anapoima-habitacion-tall.webp",
+    image: "/img/proyectos/pacifica-materiales-tall.webp",
   },
   {
     id: "remodelacion",
@@ -60,7 +60,7 @@ const SERVICIOS = [
       "Entrega con acta de pendientes cerrada",
     ],
     para: "Cocinas, baños, terrazas y redistribuciones.",
-    image: "/img/proyectos/anapoima-bano-tall.webp",
+    image: "/img/proyectos/pacifica-sala-doble-altura-tall.webp",
   },
   {
     id: "a-medida",
@@ -76,7 +76,7 @@ const SERVICIOS = [
       "Garantía de un año en estructura",
     ],
     para: "Espaldares, comedores, consolas, closets, muebles de exterior.",
-    image: "/img/productos/perchero-roble.webp",
+    image: "/img/proyectos/estudio-a-medida-tall.webp",
   },
 ];
 
@@ -114,7 +114,7 @@ export default async function ServiciosPage() {
           <h1 className="display mt-4 max-w-3xl text-[2.6rem] md:text-[4rem]">
             Del primer boceto a la última luz encendida
           </h1>
-          <p className="mt-7 max-w-2xl text-[0.98rem] font-light leading-relaxed text-mute">
+          <p className="mt-7 max-w-2xl text-[1.05rem] font-light leading-relaxed text-mute">
             Desde una visita puntual hasta un proyecto completo con obra. Elegí
             hasta dónde querés que lleguemos. La primera llamada o videollamada
             no tiene costo; a partir de la visita al espacio, empieza a correr
@@ -164,7 +164,7 @@ export default async function ServiciosPage() {
               <p className="mt-4 text-[1.05rem] font-light text-espresso">
                 {sv.lead}
               </p>
-              <p className="mt-5 text-[0.95rem] font-light leading-relaxed text-mute">
+              <p className="mt-5 text-[1.02rem] font-light leading-relaxed text-mute">
                 {sv.body}
               </p>
               <h3 className="eyebrow mt-9">Incluye</h3>
@@ -174,7 +174,7 @@ export default async function ServiciosPage() {
                     key={x}
                     className="flex gap-3 text-[0.88rem] font-light leading-relaxed"
                   >
-                    <span className="text-clay">—</span>
+                    <span className="text-clay-deep">—</span>
                     {x}
                   </li>
                 ))}
@@ -208,7 +208,7 @@ export default async function ServiciosPage() {
             {FAQ.map((f) => (
               <div key={f.q} className="border-b border-line py-7 first:border-t">
                 <dt className="font-display text-[1.35rem] font-light">{f.q}</dt>
-                <dd className="mt-3 max-w-2xl text-[0.93rem] font-light leading-relaxed text-mute">
+                <dd className="mt-3 max-w-2xl text-[1rem] font-light leading-relaxed text-mute">
                   {f.a}
                 </dd>
               </div>
@@ -225,7 +225,7 @@ export default async function ServiciosPage() {
             <h2 className="display mt-4 text-[2.2rem] md:text-[3rem]">
               La primera llamada no tiene costo
             </h2>
-            <p className="mt-6 text-[0.95rem] font-light leading-relaxed text-mute">
+            <p className="mt-6 text-[1.02rem] font-light leading-relaxed text-mute">
               Contanos qué espacio querés resolver y coordinamos una llamada o
               videollamada sin costo, donde salimos con una propuesta de alcance
               y un rango de inversión. La visita al espacio hace parte de la
