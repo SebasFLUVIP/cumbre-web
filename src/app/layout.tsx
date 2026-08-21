@@ -22,7 +22,9 @@ const jost = Jost({
   display: "swap",
 });
 
-const SITE = "https://cumbredeco.com";
+// La misma fuente de verdad que sitemap.ts y robots.ts, para que el
+// dominio nunca quede desincronizado entre las tres.
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://cumbredeco.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
