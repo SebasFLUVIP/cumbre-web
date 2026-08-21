@@ -9,7 +9,7 @@
   --color-line: #ded5c5;
   --color-ink: #2c261e;
   --color-espresso: #3d3428;
-  --color-mute: #7b7264;
+  --color-mute: #655c4c;
   --color-clay: #9a7b5f;
   --color-clay-deep: #7d6249;
   --color-olive: #6a6a52;
@@ -109,4 +109,41 @@
     .reveal { opacity: 1; transform: none; transition: none; }
     html { scroll-behavior: auto; }
   }
+}
+
+/*
+ * El panel de admin es una herramienta de trabajo, no una vitrina: prioriza
+ * legibilidad sobre la delicadeza tipográfica del sitio público. Estas reglas
+ * van sin @layer a propósito -- los estilos sin capa siempre le ganan en la
+ * cascada a los utilitarios de Tailwind (que sí viven en capas), sin importar
+ * el orden en el archivo ni la especificidad de la clase.
+ */
+.admin-ui {
+  font-size: 1.0625rem;
+}
+.admin-ui .font-light {
+  font-weight: 400;
+}
+.admin-ui .text-mute {
+  color: #4a4436;
+}
+.admin-ui .text-\[0\.6rem\],
+.admin-ui .text-\[0\.62rem\],
+.admin-ui .text-\[0\.65rem\],
+.admin-ui .text-\[0\.66rem\] {
+  font-size: 0.75rem;
+}
+.admin-ui .text-\[0\.68rem\],
+.admin-ui .text-\[0\.7rem\],
+.admin-ui .text-\[0\.72rem\] {
+  font-size: 0.8rem;
+}
+.admin-ui .text-\[0\.75rem\],
+.admin-ui .text-\[0\.76rem\],
+.admin-ui .text-\[0\.78rem\] {
+  font-size: 0.88rem;
+}
+.admin-ui .text-\[0\.8rem\],
+.admin-ui .text-\[0\.82rem\] {
+  font-size: 0.9rem;
 }

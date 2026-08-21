@@ -24,7 +24,7 @@ export default async function AdminLayout({
   const authed = await isAdmin();
 
   return (
-    <div className="min-h-[70svh] bg-paper">
+    <div className="admin-ui min-h-[70svh] bg-paper">
       {authed && (
         <div className="border-b border-line bg-bone">
           <div className="shell flex flex-wrap items-center gap-x-7 gap-y-2 py-4">
