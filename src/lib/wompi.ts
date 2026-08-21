@@ -31,7 +31,15 @@ export function wompiConfig() {
     siteUrl,
     isTest,
     /** Sin llaves configuradas el checkout no puede cobrar de verdad. */
-    configured: Boolean(publicKey && integritySecret),
+    // Los placeholders de .env.example contienen X repetidas; si alguien
+    // despliega sin cambiarlos, hay que tratarlo como "no configurado" en vez
+    // de deja pasar al cliente a un checkout con llaves falsas.
+    configured: Boolean(
+      publicKey &&
+        integritySecret &&
+        !publicKey.includes("X") &&
+        !integritySecret.includes("X")
+    ),
   };
 }
 

@@ -37,7 +37,7 @@ export default function Wordmark({
             aria-hidden
           />
           <span
-            className={`${s.tag} font-sans font-normal uppercase opacity-75`}
+            className={`${s.tag} font-sans font-medium uppercase opacity-95`}
             style={{ letterSpacing: "0.3em", textIndent: "0.3em" }}
           >
             Decoration &amp; Interior Design

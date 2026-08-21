@@ -84,8 +84,8 @@ export default function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 onMouseEnter={() => setMega(Boolean(item.mega))}
-                className={`link-underline text-[0.7rem] uppercase tracking-[0.18em] ${
-                  pathname.startsWith(item.href) ? "opacity-100" : "opacity-75"
+                className={`link-underline text-[0.72rem] font-medium uppercase tracking-[0.16em] ${
+                  pathname.startsWith(item.href) ? "opacity-100" : "opacity-90"
                 } hover:opacity-100`}
               >
                 {item.label}
@@ -113,8 +113,8 @@ export default function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`hidden link-underline text-[0.7rem] uppercase tracking-[0.18em] lg:inline ${
-                  pathname.startsWith(item.href) ? "opacity-100" : "opacity-75"
+                className={`hidden link-underline text-[0.72rem] font-medium uppercase tracking-[0.16em] lg:inline ${
+                  pathname.startsWith(item.href) ? "opacity-100" : "opacity-90"
                 } hover:opacity-100`}
               >
                 {item.label}
@@ -123,7 +123,7 @@ export default function SiteHeader() {
             <button
               type="button"
               onClick={() => setOpen(true)}
-              className="relative text-[0.7rem] uppercase tracking-[0.18em] opacity-85 hover:opacity-100"
+              className="relative text-[0.72rem] font-medium uppercase tracking-[0.16em] opacity-100"
               aria-label={`Carrito, ${count} artículos`}
             >
               Carrito
