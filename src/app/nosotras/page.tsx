@@ -47,7 +47,7 @@ export default function NosotrasPage() {
               Luisa y Victoria. Diseñamos casas en Bogotá y en tierra
               caliente, hacemos muebles a medida y elegimos, una por una, las
               piezas que vendemos en la tienda. Nos mueve lo mismo desde el
-              principio: lo simple, lo natural y lo que dura.
+              principio: lo esencial, lo hecho a mano y lo que dura.
             </p>
             <p className="mt-5 text-[0.95rem] font-light leading-relaxed text-mute">
               Nos metemos en todo: la distribución, la luz, el mueble que hay
@@ -88,8 +88,8 @@ export default function NosotrasPage() {
       <section className="shell pb-20 md:pb-28">
         <Reveal className="mx-auto max-w-3xl">
           <p className="display text-[1.6rem] leading-[1.35] md:text-[2.2rem]">
-            Creamos Cumbre como una marca que refleja lo que amamos: lo simple y
-            lo natural.
+            Cumbre no es una tendencia que seguimos. Es la manera en que ya
+            nos gustaba trabajar.
           </p>
           <div className="mt-10 space-y-6 text-[0.98rem] font-light leading-[1.85] text-mute">
             <p>
@@ -149,9 +149,8 @@ export default function NosotrasPage() {
         <div className="shell relative flex h-full items-end pb-14 md:pb-20">
           <Reveal className="max-w-2xl">
             <p className="display text-[1.6rem] leading-[1.3] text-bone md:text-[2.3rem]">
-              Una casa bien resuelta no se nota. Se siente en la luz que entra
-              a la hora justa, en el material que da gusto tocar, en el silencio
-              de las cosas que están donde tienen que estar.
+              No nos gusta que se note el trabajo. Nos gusta que se note
+              la casa.
             </p>
             <p className="mt-6 text-[0.7rem] uppercase tracking-[0.22em] text-bone/70">
               Tita &amp; Vicky

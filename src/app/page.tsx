@@ -66,10 +66,16 @@ export default async function HomePage() {
           <p className="eyebrow text-bone/80">
             Estudio de interiorismo &amp; tienda · Colombia
           </p>
+          {/* Titular del hero -- alternativas descartadas, por si se quiere
+              volver a probar otra:
+                Alt 1: "Simple de ver. Pensado hasta el último detalle."
+                Alt 2: "De ciudad y de fin de semana."
+                Alt 3: "Tu casa, hecha de lo que dura."
+                Alt 4: "La calma también se diseña." */}
           <h1 className="display mt-5 max-w-4xl text-[2.9rem] text-bone sm:text-[4rem] lg:text-[5.25rem]">
-            Lo simple y lo natural,
+            Casas que no se notan.
             <br />
-            llevado a tu casa
+            Se sienten.
           </h1>
           <p className="mt-7 max-w-xl text-[1rem] font-light leading-relaxed text-bone/85">
             Cada proyecto es un recorrido hacia la calma. Líneas simples,
@@ -268,12 +274,12 @@ export default async function HomePage() {
         <div className="shell relative flex h-full items-center">
           <Reveal className="max-w-2xl">
             <p className="display text-[1.7rem] leading-[1.3] text-bone md:text-[2.5rem]">
-              Imaginá la luz de las cinco entrando de costado, el olor a
-              madera recién aceitada, el silencio de una casa que por fin
-              funciona. Eso es lo que diseñamos.
+              Una casa bien resuelta no se nota. Se siente en la luz que
+              entra a la hora justa, en el material que da gusto tocar, en
+              el silencio de las cosas que están donde tienen que estar.
             </p>
             <p className="mt-7 text-[0.7rem] uppercase tracking-[0.22em] text-bone/70">
-              Despertar los sentidos
+              Tita &amp; Vicky
             </p>
           </Reveal>
         </div>
