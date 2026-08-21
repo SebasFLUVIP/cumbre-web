@@ -5,6 +5,7 @@ import { getAllProducts, getSettings } from "@/lib/store";
 import { categoryName } from "@/lib/categories";
 import { deliveryShort, formatCOP } from "@/lib/format";
 import { repriceFromUSD, toggleProductActive } from "../actions";
+import DeleteProductButton from "@/components/admin/DeleteProductButton";
 
 export default async function AdminProductos({
   searchParams,
@@ -95,7 +96,8 @@ export default async function AdminProductos({
               <th className="py-3 pr-4 font-normal">Entrega</th>
               <th className="py-3 pr-4 font-normal">Stock</th>
               <th className="py-3 pr-4 font-normal">Dónde comprarlo</th>
-              <th className="py-3 pr-2 font-normal">Estado</th>
+              <th className="py-3 pr-4 font-normal">Estado</th>
+              <th className="py-3 pr-2 font-normal">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -168,7 +170,7 @@ export default async function AdminProductos({
                       <span className="text-mute">Producción propia</span>
                     )}
                   </td>
-                  <td className="py-3 pr-2">
+                  <td className="py-3 pr-4">
                     <form action={toggleProductActive}>
                       <input type="hidden" name="id" value={p.id} />
                       <button
@@ -182,6 +184,26 @@ export default async function AdminProductos({
                         {p.active ? "Activo" : "Oculto"}
                       </button>
                     </form>
+                  </td>
+                  <td className="py-3 pr-2">
+                    <div className="flex items-center gap-4 whitespace-nowrap">
+                      <a
+                        href={`/producto/${p.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[0.68rem] uppercase tracking-[0.14em] text-mute hover:text-ink"
+                        title={p.active ? "Ver en el sitio" : "Oculto: no se ve en el sitio público"}
+                      >
+                        Ver
+                      </a>
+                      <Link
+                        href={`/admin/productos/${p.id}`}
+                        className="text-[0.68rem] uppercase tracking-[0.14em] text-mute hover:text-ink"
+                      >
+                        Editar
+                      </Link>
+                      <DeleteProductButton id={p.id} name={p.name} />
+                    </div>
                   </td>
                 </tr>
               );
