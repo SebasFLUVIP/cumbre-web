@@ -2,9 +2,9 @@ import type { Project } from "@/lib/types";
 
 export const PROJECTS: Project[] = [
   {
-    slug: "casa-de-campo-anapoima",
-    title: "Casa de campo en Anapoima",
-    location: "Anapoima, Cundinamarca",
+    slug: "casa-de-campo-villeta",
+    title: "Casa de campo en Colinas de Payandé",
+    location: "Colinas de Payandé, Villeta",
     year: "2025",
     category: "Proyecto integral",
     summary:
@@ -24,47 +24,47 @@ export const PROJECTS: Project[] = [
       "La iluminación se diseñó toda en luz cálida indirecta — cornisas, apliques bañando muro y lámparas colgantes tejidas. No hay un solo bombillo a la vista. De noche, la casa se lee por las superficies que ilumina, no por los puntos de luz.",
       "El baño social fue nuestro capricho: un lavamanos tallado en una sola pieza de travertino, un jardín interior iluminado desde el piso, y una lámpara de fique con flecos que hicimos con artesanas de la región. Es el espacio del que más nos escriben.",
     ],
-    cover: "/img/proyectos/anapoima-comedor-wide.webp",
+    cover: "/img/proyectos/payande-comedor-wide.webp",
     featured: true,
     gallery: [
       {
-        src: "/img/proyectos/anapoima-comedor-wide.webp",
+        src: "/img/proyectos/payande-comedor-wide.webp",
         ratio: "wide",
         caption:
           "El comedor de doce puestos en teca maciza, con la piscina de borde infinito y el valle atrás.",
       },
       {
-        src: "/img/proyectos/anapoima-piscina-dia-wide.webp",
+        src: "/img/proyectos/payande-piscina-dia-wide.webp",
         ratio: "wide",
         caption:
           "Borde infinito en piedra natural. El deck en travertino sigue hasta adentro sin cambio de material.",
       },
       {
-        src: "/img/proyectos/anapoima-terraza-wide.webp",
+        src: "/img/proyectos/payande-terraza-wide.webp",
         ratio: "wide",
         caption:
           "La terraza principal: mesa redonda en roble, sillas en cuerda y un banco corrido en obra.",
       },
       {
-        src: "/img/proyectos/anapoima-social-tall.webp",
+        src: "/img/proyectos/payande-social-tall.webp",
         ratio: "tall",
         caption:
           "Zona social de noche. Cielo en caña, luz cálida indirecta y colgantes tejidos a mano.",
       },
       {
-        src: "/img/proyectos/anapoima-bano-tall.webp",
+        src: "/img/proyectos/payande-bano-tall.webp",
         ratio: "tall",
         caption:
           "Baño social: lavamanos en una sola pieza de travertino y jardín interior iluminado desde el piso.",
       },
       {
-        src: "/img/proyectos/anapoima-habitacion-tall.webp",
+        src: "/img/proyectos/payande-habitacion-tall.webp",
         ratio: "tall",
         caption:
           "Habitación de huéspedes. Cornisa de luz sobre la ventana y ventilador de aspas en madera.",
       },
       {
-        src: "/img/proyectos/anapoima-piscina-vertical-tall.webp",
+        src: "/img/proyectos/payande-piscina-vertical-tall.webp",
         ratio: "tall",
         caption:
           "La fachada de noche, leída solo por los apliques que bañan el muro.",

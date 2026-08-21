@@ -63,7 +63,7 @@ export const CATEGORIES: Category[] = [
     tagline: "Aire sin ruido",
     description:
       "Ventiladores de techo en madera y de bajo perfil, con motor DC y control remoto. Los que usamos en las casas de Anapoima y Villeta, donde el aire importa más que el aire acondicionado.",
-    image: "/img/proyectos/anapoima-social-tall.webp",
+    image: "/img/proyectos/payande-social-tall.webp",
   },
 ];
 

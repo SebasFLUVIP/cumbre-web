@@ -28,7 +28,7 @@ const SERVICIOS = [
       "Montaje y entrega vestida",
     ],
     para: "Casas y apartamentos completos, remodelaciones y casas de campo.",
-    image: "/img/proyectos/anapoima-terraza-wide.webp",
+    image: "/img/proyectos/payande-terraza-wide.webp",
   },
   {
     id: "asesoria",

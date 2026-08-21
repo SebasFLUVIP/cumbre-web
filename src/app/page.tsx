@@ -196,7 +196,7 @@ export default async function HomePage() {
             <Link href={`/proyectos/${project.slug}`} className="group block">
               <div className="relative aspect-[4/3] overflow-hidden bg-sand">
                 <Image
-                  src="/img/proyectos/anapoima-terraza-wide.webp"
+                  src="/img/proyectos/payande-terraza-wide.webp"
                   alt={project.title}
                   fill
                   sizes="(min-width: 1024px) 58vw, 100vw"

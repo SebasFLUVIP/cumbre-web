@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: "Cumbre — Decoración y diseño de interiores",
     description:
       "Proyectos integrales de interiorismo, muebles a medida y objetos de decoración. Tu casa tiene que contar tu historia.",
-    images: ["/img/proyectos/anapoima-comedor-wide.webp"],
+    images: ["/img/proyectos/payande-comedor-wide.webp"],
   },
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
