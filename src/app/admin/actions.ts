@@ -192,6 +192,7 @@ export async function saveSettingsAction(formData: FormData) {
     whatsapp: str(formData, "whatsapp").replace(/\D/g, "") || current.whatsapp,
     email: str(formData, "email") || current.email,
     instagram: str(formData, "instagram").replace(/^@/, "") || current.instagram,
+    calendarUrl: str(formData, "calendarUrl") || undefined,
   };
   await saveSettings(next);
   revalidatePath("/admin/ajustes");

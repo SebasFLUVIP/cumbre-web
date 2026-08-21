@@ -77,7 +77,10 @@ export default async function RootLayout({
           >
             Saltar al contenido
           </a>
-          <SiteHeader freeShippingThresholdCOP={settings.freeShippingThresholdCOP} />
+          <SiteHeader
+            freeShippingThresholdCOP={settings.freeShippingThresholdCOP}
+            calendarUrl={settings.calendarUrl}
+          />
           <main id="contenido">{children}</main>
           <SiteFooter />
           <CartDrawer freeShippingThresholdCOP={settings.freeShippingThresholdCOP} />

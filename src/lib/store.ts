@@ -52,6 +52,7 @@ const DEFAULT_SETTINGS: Settings = {
   whatsapp: "573104337403",
   email: "hola@cumbredeco.com",
   instagram: "cumbre.decohome",
+  calendarUrl: "",
 };
 
 export async function getSettings(): Promise<Settings> {

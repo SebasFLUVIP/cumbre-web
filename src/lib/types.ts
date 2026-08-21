@@ -85,6 +85,9 @@ export type Settings = {
   whatsapp: string;
   email: string;
   instagram: string;
+  /** Link de agenda (Calendly, Cal.com, etc.) para la primera consulta.
+   *  Vacío = el CTA cae de vuelta a la sección de contacto del sitio. */
+  calendarUrl?: string;
 };
 
 export type OrderItem = {

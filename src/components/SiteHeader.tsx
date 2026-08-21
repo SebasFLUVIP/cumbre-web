@@ -18,8 +18,10 @@ const NAV = [
 
 export default function SiteHeader({
   freeShippingThresholdCOP,
+  calendarUrl,
 }: {
   freeShippingThresholdCOP: number;
+  calendarUrl?: string;
 }) {
   const pathname = usePathname();
   const { count, setOpen } = useCart();
@@ -57,9 +59,20 @@ export default function SiteHeader({
         <div className="shell flex h-9 items-center justify-center gap-6 text-[0.65rem] font-light tracking-[0.18em] uppercase">
           <span>Envío gratis desde {formatCOP(freeShippingThresholdCOP)}</span>
           <span className="hidden opacity-40 sm:inline">·</span>
-          <Link href="/servicios" className="hidden link-underline sm:inline">
-            Primera consulta online sin costo
-          </Link>
+          {calendarUrl ? (
+            <a
+              href={calendarUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden link-underline sm:inline"
+            >
+              Primera consulta online sin costo
+            </a>
+          ) : (
+            <Link href="/servicios#hablemos" className="hidden link-underline sm:inline">
+              Primera consulta online sin costo
+            </Link>
+          )}
         </div>
       </div>
 

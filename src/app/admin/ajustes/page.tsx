@@ -130,6 +130,25 @@ export default async function AdminAjustes({
               hint="Sin la arroba."
             />
           </div>
+          <div className="mt-5 grid gap-5 sm:grid-cols-3">
+            <div className="sm:col-span-2">
+              <label className={lab} htmlFor="calendarUrl">
+                Link de agenda (Calendly, Cal.com, etc.)
+              </label>
+              <input
+                id="calendarUrl"
+                name="calendarUrl"
+                type="url"
+                defaultValue={s.calendarUrl ?? ""}
+                placeholder="https://calendly.com/cumbre/primera-consulta"
+                className={input}
+              />
+              <p className="mt-1.5 text-[0.72rem] font-light text-mute">
+                A dónde lleva &quot;Primera consulta online sin costo&quot; en el
+                encabezado. Vacío = lleva a la sección de contacto del sitio.
+              </p>
+            </div>
+          </div>
         </section>
 
         <button
