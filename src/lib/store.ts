@@ -49,7 +49,7 @@ const DEFAULT_SETTINGS: Settings = {
   freeShippingThresholdCOP: 300000,
   shippingBogotaCOP: 25000,
   shippingNacionalCOP: 45000,
-  whatsapp: "573000000000",
+  whatsapp: "573104337403",
   email: "hola@cumbredeco.com",
   instagram: "cumbre.decohome",
 };

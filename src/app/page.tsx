@@ -264,8 +264,8 @@ export default async function HomePage() {
       {/* ───────────────────── Franja editorial ───────────────────── */}
       <section className="relative h-[75svh] min-h-[26rem] w-full">
         <Image
-          src="/img/proyectos/anapoima-bano-wide.webp"
-          alt="Baño social con lavamanos tallado en travertino y lámpara de fique"
+          src="/img/proyectos/sala-chimenea-wide.webp"
+          alt="Sala con chimenea de piedra, paneles de madera y asientos junto a la ventana"
           fill
           sizes="100vw"
           className="object-cover"

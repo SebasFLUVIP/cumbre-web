@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { addLead } from "@/lib/store";
+import { sendLeadNotification } from "@/lib/notify";
 import type { Lead } from "@/lib/types";
 
 export const runtime = "nodejs";
@@ -48,6 +49,9 @@ export async function POST(req: Request) {
 
   await addLead(lead);
 
-  // TODO(Cumbre): enganchar aviso por correo o WhatsApp cuando definan el canal.
+  // El aviso es best-effort: si falla, el lead ya quedo guardado y visible
+  // en /admin/leads, así que la respuesta al cliente no debe verse afectada.
+  await sendLeadNotification(lead).catch(() => {});
+
   return NextResponse.json({ ok: true, id: lead.id });
 }

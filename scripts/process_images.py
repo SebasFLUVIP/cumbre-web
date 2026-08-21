@@ -423,6 +423,10 @@ if __name__ == "__main__":
             to_lifestyle(f"ig/{src_f}.jpg", out, ratios=R,
                          strength=0, neutral=1.0, cool=0.8, sat=0.9)
 
+        # Sala con chimenea: reemplaza a anapoima-bano en la franja editorial
+        # de la home, que se veia pixelada a ancho completo de pantalla.
+        to_lifestyle('sala-chimenea.jpg', 'sala-chimenea', ratios=R)
+
         # El retrato va sin grading de marca, pero sí con balance de blancos:
         # la toma se hizo con luz de tarde sobre muros crema y el archivo sale
         # con una dominante ámbar que tiñe las camisas blancas.
