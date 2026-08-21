@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 
 type Item = { url: string; status: "listo" | "subiendo" | "error"; error?: string };
+
+export type ImageUploaderHandle = { addImages: (urls: string[]) => void };
 
 /**
  * Sube fotos a Supabase Storage vía /api/admin/upload y mantiene la lista de
@@ -11,11 +13,8 @@ type Item = { url: string; status: "listo" | "subiendo" | "error"; error?: strin
  * producto siga enviándose exactamente igual que antes -- upsertProduct no
  * necesitó cambiar nada.
  */
-export default function ImageUploader({
-  initialImages,
-}: {
-  initialImages: string[];
-}) {
+const ImageUploader = forwardRef<ImageUploaderHandle, { initialImages: string[] }>(
+  function ImageUploader({ initialImages }, ref) {
   const [items, setItems] = useState<Item[]>(
     initialImages.map((url) => ({ url, status: "listo" as const }))
   );
@@ -75,6 +74,14 @@ export default function ImageUploader({
   }
 
   const readyUrls = items.filter((it) => it.status === "listo").map((it) => it.url);
+
+  useImperativeHandle(ref, () => ({
+    addImages: (urls: string[]) => {
+      const clean = urls.filter(Boolean);
+      if (!clean.length) return;
+      setItems((prev) => [...prev, ...clean.map((url) => ({ url, status: "listo" as const }))]);
+    },
+  }));
 
   return (
     <div>
@@ -217,4 +224,7 @@ export default function ImageUploader({
       )}
     </div>
   );
-}
+  }
+);
+
+export default ImageUploader;

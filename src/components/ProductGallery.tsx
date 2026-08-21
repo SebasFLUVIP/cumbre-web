@@ -14,12 +14,19 @@ export default function ProductGallery({
   const [active, setActive] = useState(0);
 
   if (images.length === 0) {
-    return <ProductMedia alt={alt} ratio="4/5" sizes="(min-width: 1024px) 52vw, 100vw" />;
+    return (
+      <ProductMedia
+        alt={alt}
+        ratio="4/5"
+        sizes="(min-width: 1024px) 52vw, 100vw"
+        className="max-h-[46vh] sm:max-h-[55vh] lg:max-h-[70vh]"
+      />
+    );
   }
 
   return (
     <div className="grid gap-3">
-      <div className="relative aspect-[4/5] overflow-hidden bg-sand">
+      <div className="relative aspect-[4/5] max-h-[46vh] overflow-hidden bg-sand sm:max-h-[55vh] lg:max-h-[70vh]">
         <Image
           src={images[active]}
           alt={alt}

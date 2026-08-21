@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { CATEGORIES } from "@/lib/categories";
 import { formatCOP } from "@/lib/format";
-import ImageUploader from "./ImageUploader";
+import ImageUploader, { type ImageUploaderHandle } from "./ImageUploader";
 import type { Product, Settings } from "@/lib/types";
 
 const input =
@@ -47,12 +47,76 @@ export default function ProductForm({
   const [price, setPrice] = useState(product?.priceCOP ?? 0);
   const [deliveryKind, setDeliveryKind] = useState(product?.delivery.kind ?? "dias");
 
+  const [importUrl, setImportUrl] = useState("");
+  const [importing, setImporting] = useState(false);
+  const [importError, setImportError] = useState<string | null>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const supplierUrlRef = useRef<HTMLInputElement>(null);
+  const supplierNameRef = useRef<HTMLInputElement>(null);
+  const imageUploaderRef = useRef<ImageUploaderHandle>(null);
+
   const base = costCOP > 0 ? costCOP : costUSD * settings.usdToCop;
   const suggested = base > 0 ? Math.round((base * markup) / 1000) * 1000 : 0;
+
+  async function handleImport() {
+    const url = importUrl.trim();
+    if (!url) return;
+    setImporting(true);
+    setImportError(null);
+    try {
+      const res = await fetch("/api/admin/import-amazon", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error ?? "No se pudo importar");
+      if (nameRef.current && !nameRef.current.value) nameRef.current.value = json.name ?? "";
+      if (supplierUrlRef.current) supplierUrlRef.current.value = url;
+      if (supplierNameRef.current && !supplierNameRef.current.value) {
+        supplierNameRef.current.value = "Amazon";
+      }
+      if (json.costCOP) setCostCOP(json.costCOP);
+      else if (json.costUSD) setCostUSD(json.costUSD);
+      if (json.images?.length) imageUploaderRef.current?.addImages(json.images);
+    } catch (err) {
+      setImportError(err instanceof Error ? err.message : "No se pudo importar");
+    } finally {
+      setImporting(false);
+    }
+  }
 
   return (
     <form action={action} className="mt-10 grid gap-12 lg:grid-cols-12">
       <input type="hidden" name="id" value={product?.id ?? ""} />
+
+      <div className="lg:col-span-12 border border-line bg-sand/40 p-5">
+        <label className={lab}>Importar desde Amazon</label>
+        <div className="mt-2 flex flex-col gap-2 sm:flex-row">
+          <input
+            type="url"
+            value={importUrl}
+            onChange={(e) => setImportUrl(e.target.value)}
+            placeholder="https://www.amazon.com/…"
+            className={`${input} font-mono text-[0.8rem]`}
+          />
+          <button
+            type="button"
+            onClick={handleImport}
+            disabled={importing || !importUrl.trim()}
+            className="whitespace-nowrap border border-line px-6 py-2.5 text-[0.68rem] uppercase tracking-[0.16em] hover:bg-sand disabled:opacity-40"
+          >
+            {importing ? "Importando…" : "Importar"}
+          </button>
+        </div>
+        {importError && (
+          <p className="mt-2 text-[0.78rem] font-light text-clay-deep">{importError}</p>
+        )}
+        <p className="mt-2 text-[0.72rem] font-light leading-relaxed text-mute">
+          Trae el nombre, el precio y las fotos del producto. Revisá todo y
+          completá descripción, medidas y margen antes de guardar.
+        </p>
+      </div>
 
       {/* ── Columna principal ── */}
       <div className="lg:col-span-8">
@@ -60,7 +124,13 @@ export default function ProductForm({
           <h2 className="font-display text-2xl font-light">Ficha pública</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <Field label="Nombre" wide>
-              <input name="name" required defaultValue={product?.name} className={input} />
+              <input
+                name="name"
+                required
+                defaultValue={product?.name}
+                ref={nameRef}
+                className={input}
+              />
             </Field>
             <Field label="URL (slug)" hint="Se genera del nombre si lo dejás vacío.">
               <input name="slug" defaultValue={product?.slug} className={input} />
@@ -90,7 +160,7 @@ export default function ProductForm({
             </Field>
             <div className="sm:col-span-2">
               <label className={lab}>Fotos</label>
-              <ImageUploader initialImages={product?.images ?? []} />
+              <ImageUploader ref={imageUploaderRef} initialImages={product?.images ?? []} />
             </div>
             <Field label="Medidas">
               <input name="dimensions" defaultValue={product?.dimensions} className={input} />
@@ -141,6 +211,7 @@ export default function ProductForm({
                 name="supplierName"
                 defaultValue={product?.supplier?.name}
                 placeholder="Amazon, Ecofibras Curití, taller propio…"
+                ref={supplierNameRef}
                 className={input}
               />
             </Field>
@@ -150,6 +221,7 @@ export default function ProductForm({
                 type="url"
                 defaultValue={product?.supplier?.url}
                 placeholder="https://…"
+                ref={supplierUrlRef}
                 className={`${input} font-mono text-[0.8rem]`}
               />
             </Field>
