@@ -77,10 +77,10 @@ export default async function RootLayout({
           >
             Saltar al contenido
           </a>
-          <SiteHeader />
+          <SiteHeader freeShippingThresholdCOP={settings.freeShippingThresholdCOP} />
           <main id="contenido">{children}</main>
           <SiteFooter />
-          <CartDrawer />
+          <CartDrawer freeShippingThresholdCOP={settings.freeShippingThresholdCOP} />
           <WhatsAppButton phone={settings.whatsapp} />
         </CartProvider>
       </body>

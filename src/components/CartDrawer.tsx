@@ -6,9 +6,11 @@ import { useEffect } from "react";
 import { formatCOP } from "@/lib/format";
 import { lineKey, useCart } from "./CartProvider";
 
-const FREE_SHIPPING = 800000;
-
-export default function CartDrawer() {
+export default function CartDrawer({
+  freeShippingThresholdCOP,
+}: {
+  freeShippingThresholdCOP: number;
+}) {
   const { lines, open, setOpen, subtotalCOP, setQuantity, remove, count } =
     useCart();
 
@@ -25,7 +27,7 @@ export default function CartDrawer() {
     };
   }, [open]);
 
-  const missing = Math.max(0, FREE_SHIPPING - subtotalCOP);
+  const missing = Math.max(0, freeShippingThresholdCOP - subtotalCOP);
 
   return (
     <div

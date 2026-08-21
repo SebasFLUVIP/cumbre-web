@@ -46,7 +46,7 @@ const DEFAULT_SETTINGS: Settings = {
   usdToCop: 4200,
   defaultMarkup: 3,
   amazonDeliveryDays: 8,
-  freeShippingThresholdCOP: 800000,
+  freeShippingThresholdCOP: 300000,
   shippingBogotaCOP: 25000,
   shippingNacionalCOP: 45000,
   whatsapp: "573000000000",

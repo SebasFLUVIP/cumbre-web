@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CATEGORIES } from "@/lib/categories";
+import { formatCOP } from "@/lib/format";
 import { useCart } from "./CartProvider";
 import Wordmark from "./Wordmark";
 
@@ -15,7 +16,11 @@ const NAV = [
   { href: "/contacto", label: "Contacto" },
 ];
 
-export default function SiteHeader() {
+export default function SiteHeader({
+  freeShippingThresholdCOP,
+}: {
+  freeShippingThresholdCOP: number;
+}) {
   const pathname = usePathname();
   const { count, setOpen } = useCart();
   const [scrolled, setScrolled] = useState(false);
@@ -50,10 +55,10 @@ export default function SiteHeader() {
     <>
       <div className="bg-espresso text-bone">
         <div className="shell flex h-9 items-center justify-center gap-6 text-[0.65rem] font-light tracking-[0.18em] uppercase">
-          <span>Envío gratis desde $800.000</span>
+          <span>Envío gratis desde {formatCOP(freeShippingThresholdCOP)}</span>
           <span className="hidden opacity-40 sm:inline">·</span>
           <Link href="/servicios" className="hidden link-underline sm:inline">
-            Primera llamada sin costo
+            Primera consulta online sin costo
           </Link>
         </div>
       </div>

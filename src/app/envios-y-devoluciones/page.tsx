@@ -25,7 +25,7 @@ export default function Page() {
         {
           h: "Costos de envío",
           p: [
-            "Envío gratis en compras desde $800.000. Por debajo de ese monto, el envío en Bogotá cuesta $25.000 y al resto del país $45.000.",
+            "Envío gratis en compras desde $300.000. Por debajo de ese monto, el envío en Bogotá cuesta $25.000 y al resto del país $45.000.",
             "Los muebles grandes y las piezas a medida pueden tener un costo de transporte e instalación adicional según el destino. Te lo informamos antes de confirmar el pedido, nunca después.",
           ],
         },
