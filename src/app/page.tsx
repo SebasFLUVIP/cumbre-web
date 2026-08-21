@@ -12,7 +12,9 @@ export default async function HomePage() {
     getPublicProducts(),
     getSettings(),
   ]);
-  const featured = products.filter((p) => p.featured).slice(0, 8);
+  const featured = products
+    .filter((p) => p.featured && p.images.length > 0)
+    .slice(0, 8);
   const project = PROJECTS[0];
 
   return (

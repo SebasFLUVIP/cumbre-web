@@ -129,6 +129,10 @@ export async function upsertProduct(formData: FormData) {
   await saveProducts(next);
   revalidatePath("/admin/productos");
   revalidatePath("/tienda");
+  revalidatePath(`/tienda/${product.category}`);
+  if (existing && existing.category !== product.category) {
+    revalidatePath(`/tienda/${existing.category}`);
+  }
   revalidatePath(`/producto/${product.slug}`);
   redirect("/admin/productos?guardado=1");
 }
@@ -137,9 +141,11 @@ export async function deleteProduct(formData: FormData) {
   await requireAdmin();
   const id = String(formData.get("id") ?? "");
   const products = await getAllProducts();
+  const removed = products.find((p) => p.id === id);
   await saveProducts(products.filter((p) => p.id !== id));
   revalidatePath("/admin/productos");
   revalidatePath("/tienda");
+  if (removed) revalidatePath(`/tienda/${removed.category}`);
   redirect("/admin/productos?eliminado=1");
 }
 
@@ -150,8 +156,10 @@ export async function toggleProductActive(formData: FormData) {
   await saveProducts(
     products.map((p) => (p.id === id ? { ...p, active: !p.active } : p))
   );
+  const toggled = products.find((p) => p.id === id);
   revalidatePath("/admin/productos");
   revalidatePath("/tienda");
+  if (toggled) revalidatePath(`/tienda/${toggled.category}`);
 }
 
 export async function updateOrderStatus(formData: FormData) {
@@ -224,5 +232,8 @@ export async function repriceFromUSD() {
   await saveProducts(next);
   revalidatePath("/admin/productos");
   revalidatePath("/tienda");
+  for (const cat of new Set(next.map((p) => p.category))) {
+    revalidatePath(`/tienda/${cat}`);
+  }
   redirect("/admin/productos?repreciado=1");
 }
