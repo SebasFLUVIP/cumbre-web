@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { CATEGORIES } from "@/lib/categories";
 import { formatCOP } from "@/lib/format";
+import ImageUploader from "./ImageUploader";
 import type { Product, Settings } from "@/lib/types";
 
 const input =
@@ -87,18 +88,10 @@ export default function ProductForm({
                 className={`${input} resize-y`}
               />
             </Field>
-            <Field
-              label="Imágenes"
-              wide
-              hint="Una ruta por línea, ej.: /img/productos/mi-pieza.webp — subí los archivos a public/img/productos/."
-            >
-              <textarea
-                name="images"
-                rows={3}
-                defaultValue={product?.images.join("\n")}
-                className={`${input} resize-y font-mono text-[0.8rem]`}
-              />
-            </Field>
+            <div className="sm:col-span-2">
+              <label className={lab}>Fotos</label>
+              <ImageUploader initialImages={product?.images ?? []} />
+            </div>
             <Field label="Medidas">
               <input name="dimensions" defaultValue={product?.dimensions} className={input} />
             </Field>
