@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Material de referencia y datos de operación: no es código del sitio.
+    "_originales/**",
+    "data/**",
+    "public/**",
   ]),
 ]);
 

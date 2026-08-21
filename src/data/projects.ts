@@ -1,0 +1,131 @@
+import type { Project } from "@/lib/types";
+
+export const PROJECTS: Project[] = [
+  {
+    slug: "casa-de-campo-anapoima",
+    title: "Casa de campo en Anapoima",
+    location: "Anapoima, Cundinamarca",
+    year: "2025",
+    category: "Proyecto integral",
+    summary:
+      "Una casa de descanso a hora y media de Bogotá, resuelta de cero: distribución, materiales, muebles a medida e iluminación. El encargo era claro y difícil a la vez — que se sintiera fresca sin aire acondicionado y que aguantara veinte personas un fin de semana largo.",
+    scope: [
+      "Diseño de interiores integral",
+      "Muebles a medida en teca y roble",
+      "Diseño de iluminación",
+      "Selección de acabados y piedra",
+      "Terraza, zona social y piscina",
+      "Compras y montaje",
+    ],
+    body: [
+      "La casa mira al valle desde una ladera, y esa vista mandaba. Todo lo que va contra la fachada abierta se mantuvo bajo: el sofá modular, la mesa de centro, la baranda. Nada que compita con las montañas.",
+      "Trabajamos con tres materiales y punto: travertino en pisos y mesones, teca en los muebles, y caña en los cielos. La repetición es lo que hace que la casa se sienta calmada. Cuando el material se repite, el ojo deja de trabajar.",
+      "El cielo raso de caña de la zona social no es solo decorativo: rompe el calor que baja de la cubierta y le da una textura tibia a la luz de la tarde. Debajo pusimos un banco corrido en obra, tapizado en tela outdoor, que resuelve doce puestos sin llenar la terraza de muebles sueltos.",
+      "La iluminación se diseñó toda en luz cálida indirecta — cornisas, apliques bañando muro y lámparas colgantes tejidas. No hay un solo bombillo a la vista. De noche, la casa se lee por las superficies que ilumina, no por los puntos de luz.",
+      "El baño social fue nuestro capricho: un lavamanos tallado en una sola pieza de travertino, un jardín interior iluminado desde el piso, y una lámpara de fique con flecos que hicimos con artesanas de la región. Es el espacio del que más nos escriben.",
+    ],
+    cover: "/img/proyectos/anapoima-comedor-wide.webp",
+    featured: true,
+    gallery: [
+      {
+        src: "/img/proyectos/anapoima-comedor-wide.webp",
+        ratio: "wide",
+        caption:
+          "El comedor de doce puestos en teca maciza, con la piscina de borde infinito y el valle atrás.",
+      },
+      {
+        src: "/img/proyectos/anapoima-piscina-dia-wide.webp",
+        ratio: "wide",
+        caption:
+          "Borde infinito en piedra natural. El deck en travertino sigue hasta adentro sin cambio de material.",
+      },
+      {
+        src: "/img/proyectos/anapoima-terraza-wide.webp",
+        ratio: "wide",
+        caption:
+          "La terraza principal: mesa redonda en roble, sillas en cuerda y un banco corrido en obra.",
+      },
+      {
+        src: "/img/proyectos/anapoima-social-tall.webp",
+        ratio: "tall",
+        caption:
+          "Zona social de noche. Cielo en caña, luz cálida indirecta y colgantes tejidos a mano.",
+      },
+      {
+        src: "/img/proyectos/anapoima-bano-tall.webp",
+        ratio: "tall",
+        caption:
+          "Baño social: lavamanos en una sola pieza de travertino y jardín interior iluminado desde el piso.",
+      },
+      {
+        src: "/img/proyectos/anapoima-habitacion-tall.webp",
+        ratio: "tall",
+        caption:
+          "Habitación de huéspedes. Cornisa de luz sobre la ventana y ventilador de aspas en madera.",
+      },
+      {
+        src: "/img/proyectos/anapoima-piscina-vertical-tall.webp",
+        ratio: "tall",
+        caption:
+          "La fachada de noche, leída solo por los apliques que bañan el muro.",
+      },
+    ],
+  },
+  {
+    slug: "apartamento-en-bogota",
+    title: "Apartamento con vista a los árboles",
+    location: "Bogotá",
+    year: "2025",
+    category: "Asesoría y styling",
+    summary:
+      "Un apartamento que ya estaba bien construido pero no terminaba de sentirse propio. No hubo obra: hubo criterio. Redistribuimos lo que ya había, sumamos las piezas que faltaban y le devolvimos el protagonismo a lo único que no se puede comprar — la vista a los árboles.",
+    scope: [
+      "Asesoría de diseño",
+      "Redistribución de mobiliario",
+      "Selección de piezas y textiles",
+      "Mesa de centro a medida en roble",
+      "Styling y montaje final",
+    ],
+    body: [
+      "La sala tenía todo mirando hacia adentro. Lo primero fue girarla: el sofá contra el muro ciego, los asientos livianos hacia el ventanal, y nada por encima de la altura del respaldo. Desde el primer día la vista dejó de ser un fondo y pasó a ser el centro.",
+      "Las mesas de centro las hicimos a medida en roble macizo: dos módulos bajos, de tapa ancha y base maciza, que se usan pegados como una sola superficie o separados cuando hay más gente. Son las únicas piezas nuevas de estructura en todo el proyecto.",
+      "El resto fue textil y color: una butaca a rayas que rompe la calma sin gritar, cojines en lino y lana, un tapete de fibra que amarra la zona social. Cuando la paleta se sostiene, sumar un patrón fuerte no desordena.",
+      "En la habitación bajamos el ruido: espaldar tapizado en lino de tono arena, ropa de cama en capas de blanco y greige, y un solo acento de color. Nada más. Las habitaciones se disfrutan por lo que se quita, no por lo que se pone.",
+    ],
+    cover: "/img/proyectos/sala-sillas-rayas-wide.webp",
+    gallery: [
+      {
+        src: "/img/proyectos/sala-sillas-rayas-wide.webp",
+        ratio: "wide",
+        caption:
+          "La sala girada hacia el ventanal. Todo lo que va contra la vista se mantiene bajo.",
+      },
+      {
+        src: "/img/proyectos/apto-bogota-mesas-wide.webp",
+        ratio: "wide",
+        caption:
+          "Las dos mesas de centro en roble macizo, hechas a medida. Se usan juntas o separadas según cuánta gente haya.",
+      },
+      {
+        src: "/img/proyectos/apto-bogota-styling-tall.webp",
+        ratio: "tall",
+        caption: "Montaje final, con las piezas ya en su lugar.",
+      },
+      {
+        src: "/img/proyectos/espaldar-lino-tall.webp",
+        ratio: "tall",
+        caption:
+          "Habitación principal. Espaldar en lino arena y ropa de cama en capas.",
+      },
+      {
+        src: "/img/proyectos/mesa-madera-maciza-wide.webp",
+        ratio: "wide",
+        caption: "Roble macizo, canto grueso y ensamble a la vista.",
+      },
+    ],
+  },
+];
+
+export function getProject(slug: string): Project | undefined {
+  return PROJECTS.find((p) => p.slug === slug);
+}
