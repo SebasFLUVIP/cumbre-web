@@ -7,7 +7,7 @@ type Props = {
 
 const SIZES = {
   sm: { word: "text-[1.15rem]", rule: "w-8", tag: "text-[0.45rem]" },
-  md: { word: "text-[1.6rem]", rule: "w-12", tag: "text-[0.55rem]" },
+  md: { word: "text-[1.9rem]", rule: "w-14", tag: "text-[0.6rem]" },
   lg: { word: "text-[2.75rem] md:text-[3.5rem]", rule: "w-20", tag: "text-[0.7rem]" },
 };
 

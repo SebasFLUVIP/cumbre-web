@@ -9,7 +9,7 @@
   --color-line: #ded5c5;
   --color-ink: #2c261e;
   --color-espresso: #3d3428;
-  --color-mute: #655c4c;
+  --color-mute: #4a4436;
   --color-clay: #9a7b5f;
   --color-clay-deep: #7d6249;
   --color-olive: #6a6a52;
@@ -123,9 +123,6 @@
 }
 .admin-ui .font-light {
   font-weight: 400;
-}
-.admin-ui .text-mute {
-  color: #4a4436;
 }
 .admin-ui .text-\[0\.6rem\],
 .admin-ui .text-\[0\.62rem\],
