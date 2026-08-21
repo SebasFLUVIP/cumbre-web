@@ -9,7 +9,7 @@ import { useCart } from "./CartProvider";
 import Wordmark from "./Wordmark";
 
 const NAV = [
-  { href: "/tienda", label: "Tienda", mega: true },
+  { href: "/tienda", label: "Tienda online", mega: true },
   { href: "/proyectos", label: "Proyectos" },
   { href: "/servicios", label: "Servicios" },
   { href: "/nosotras", label: "Nosotras" },
@@ -219,7 +219,7 @@ export default function SiteHeader({
             </button>
           </div>
           <nav className="flex-1 overflow-y-auto px-6 py-8">
-            <p className="eyebrow">Tienda</p>
+            <p className="eyebrow">Tienda online</p>
             <ul className="mt-4 space-y-3">
               {CATEGORIES.map((c) => (
                 <li key={c.id}>
