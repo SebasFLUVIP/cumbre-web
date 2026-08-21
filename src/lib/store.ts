@@ -43,7 +43,7 @@ async function writeJson(name: string, value: unknown): Promise<void> {
 // ────────────────────────────────── Ajustes ─────────────────────────────────
 
 const DEFAULT_SETTINGS: Settings = {
-  usdToCop: 4200,
+  usdToCop: 3200,
   defaultMarkup: 3,
   amazonDeliveryDays: 8,
   freeShippingThresholdCOP: 300000,
