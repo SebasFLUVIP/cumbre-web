@@ -104,7 +104,7 @@ export default async function HomePage() {
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="eyebrow">Un homenaje a lo natural</p>
           <p className="display mt-7 text-[1.85rem] leading-[1.25] md:text-[2.6rem]">
-            Creamos Cumbre como una marca que refleja lo que amamos: lo simple y
+            Creamos Cumbre a partir de lo que nos representa: lo simple y
             lo natural. Creemos que tu casa tiene que contar tu historia.
           </p>
           <div className="mx-auto mt-10 h-px w-16 bg-clay" />
