@@ -31,6 +31,9 @@ export async function POST(req: Request) {
   }
 
   const form = await req.formData();
+  const folderRaw = String(form.get("folder") ?? "productos");
+  const folder =
+    folderRaw === "proyectos" ? "proyectos" : folderRaw === "home" ? "home" : "productos";
   const file = form.get("file");
   if (!(file instanceof File)) {
     return NextResponse.json({ error: "No llegó ningún archivo" }, { status: 400 });
@@ -61,7 +64,7 @@ export async function POST(req: Request) {
   }
 
   const name = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}.webp`;
-  const path = `productos/${name}`;
+  const path = `${folder}/${name}`;
 
   const { error } = await supabase()
     .storage.from(BUCKET)

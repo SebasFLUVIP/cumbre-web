@@ -44,6 +44,15 @@ create table if not exists settings (
   constraint settings_single_row check (id = 1)
 );
 
+create table if not exists projects (
+  id          text primary key,
+  slug        text        not null unique,
+  data        jsonb       not null,
+  created_at  timestamptz not null default now(),
+  updated_at  timestamptz not null default now()
+);
+create index if not exists projects_created_idx on projects (created_at desc);
+
 -- ── Seguridad ──────────────────────────────────────────────────────────────
 -- RLS activo y sin políticas: nadie llega desde el navegador. Todo el acceso
 -- pasa por el servidor de Next con la service role key, que salta RLS.
@@ -53,3 +62,4 @@ alter table products enable row level security;
 alter table orders   enable row level security;
 alter table leads    enable row level security;
 alter table settings enable row level security;
+alter table projects enable row level security;

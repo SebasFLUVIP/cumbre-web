@@ -1,21 +1,47 @@
 import Link from "next/link";
 import Image from "next/image";
 import { CATEGORIES } from "@/lib/categories";
-import { getPublicProducts, getSettings } from "@/lib/store";
-import { PROJECTS } from "@/data/projects";
+import { getAllProjects, getPublicProducts, getSettings } from "@/lib/store";
 import ProductCard from "@/components/ProductCard";
 import Reveal from "@/components/Reveal";
 import LeadForm from "@/components/LeadForm";
 
+const DEFAULTS = {
+  heroTitle: "Casas que no se notan.\nSe sienten.",
+  heroSubtitle:
+    "Cada proyecto es un recorrido hacia la calma. Líneas simples, materiales que respiran y la luz puesta donde tiene que estar, para que tu casa deje de ser un lugar y pase a ser una sensación.",
+  heroImageMobile: "/img/proyectos/cumbre-principal-tall.webp",
+  heroImageDesktop: "/img/proyectos/cumbre-principal-wide.webp",
+  manifestoEyebrow: "Un homenaje a lo natural",
+  manifestoHeading:
+    "Creamos Cumbre a partir de lo que nos representa: lo simple y lo natural. Creemos que tu casa tiene que contar tu historia.",
+  manifestoBody:
+    "Trabajamos con madera que envejece bien, piedra que guarda el frío de la mañana y fibras tejidas a mano por artesanas colombianas. Materiales que no buscan llamar la atención: buscan durar, y volverse más lindos con los años.",
+  editorialImage: "/img/proyectos/sala-chimenea-wide.webp",
+  editorialQuote:
+    "Una casa bien resuelta no se nota. Se siente en la luz que entra a la hora justa, en el material que da gusto tocar, en el silencio de las cosas que están donde tienen que estar.",
+};
+
 export default async function HomePage() {
-  const [products, settings] = await Promise.all([
+  const [products, settings, projects] = await Promise.all([
     getPublicProducts(),
     getSettings(),
+    getAllProjects().catch(() => []),
   ]);
   const featured = products
     .filter((p) => p.featured && p.images.length > 0)
     .slice(0, 8);
-  const project = PROJECTS[0];
+  const project = projects.find((p) => p.featured) ?? projects[0];
+
+  const heroTitle = settings.homeHeroTitle || DEFAULTS.heroTitle;
+  const heroSubtitle = settings.homeHeroSubtitle || DEFAULTS.heroSubtitle;
+  const heroImageMobile = settings.homeHeroImageMobile || DEFAULTS.heroImageMobile;
+  const heroImageDesktop = settings.homeHeroImageDesktop || DEFAULTS.heroImageDesktop;
+  const manifestoEyebrow = settings.homeManifestoEyebrow || DEFAULTS.manifestoEyebrow;
+  const manifestoHeading = settings.homeManifestoHeading || DEFAULTS.manifestoHeading;
+  const manifestoBody = settings.homeManifestoBody || DEFAULTS.manifestoBody;
+  const editorialImage = settings.homeEditorialImage || DEFAULTS.editorialImage;
+  const editorialQuote = settings.homeEditorialQuote || DEFAULTS.editorialQuote;
 
   return (
     <>
@@ -24,7 +50,7 @@ export default async function HomePage() {
         {/* Dirección de arte por formato: el encuadre vertical conserva las
             hornacinas en móvil, donde el panorámico se recortaría a nada. */}
         <Image
-          src="/img/proyectos/cumbre-principal-tall.webp"
+          src={heroImageMobile}
           alt="Sala con hornacinas en arco, repisas en madera y muro de listones"
           fill
           priority
@@ -32,7 +58,7 @@ export default async function HomePage() {
           className="object-cover md:hidden"
         />
         <Image
-          src="/img/proyectos/cumbre-principal-wide.webp"
+          src={heroImageDesktop}
           alt="Sala con hornacinas en arco, repisas en madera y muro de listones"
           fill
           priority
@@ -75,14 +101,15 @@ export default async function HomePage() {
                 Alt 3: "Tu casa, hecha de lo que dura."
                 Alt 4: "La calma también se diseña." */}
           <h1 className="display mt-5 max-w-4xl text-[2.9rem] text-bone sm:text-[4rem] lg:text-[5.25rem]">
-            Casas que no se notan.
-            <br />
-            Se sienten.
+            {heroTitle.split("\n").map((line, i, arr) => (
+              <span key={i}>
+                {line}
+                {i < arr.length - 1 && <br />}
+              </span>
+            ))}
           </h1>
           <p className="mt-7 max-w-xl text-[1rem] font-light leading-relaxed text-bone/85">
-            Cada proyecto es un recorrido hacia la calma. Líneas simples,
-            materiales que respiran y la luz puesta donde tiene que estar, para
-            que tu casa deje de ser un lugar y pase a ser una sensación.
+            {heroSubtitle}
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
@@ -104,17 +131,13 @@ export default async function HomePage() {
       {/* ─────────────────────────── Manifiesto ─────────────────────────── */}
       <section className="shell py-24 md:py-32">
         <Reveal className="mx-auto max-w-3xl text-center">
-          <p className="eyebrow">Un homenaje a lo natural</p>
+          <p className="eyebrow">{manifestoEyebrow}</p>
           <p className="display mt-7 text-[1.85rem] leading-[1.25] md:text-[2.6rem]">
-            Creamos Cumbre a partir de lo que nos representa: lo simple y
-            lo natural. Creemos que tu casa tiene que contar tu historia.
+            {manifestoHeading}
           </p>
           <div className="mx-auto mt-10 h-px w-16 bg-clay" />
           <p className="mt-8 text-[1.02rem] font-light leading-relaxed text-mute">
-            Trabajamos con madera que envejece bien, piedra que guarda el
-            frío de la mañana y fibras tejidas a mano por artesanas
-            colombianas. Materiales que no buscan llamar la atención: buscan
-            durar, y volverse más lindos con los años.
+            {manifestoBody}
           </p>
         </Reveal>
       </section>
@@ -192,13 +215,14 @@ export default async function HomePage() {
       </section>
 
       {/* ───────────────────────── Proyectos ───────────────────────── */}
+      {project && (
       <section className="shell py-24 md:py-32">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-7">
             <Link href={`/proyectos/${project.slug}`} className="group block">
               <div className="relative aspect-[4/3] overflow-hidden bg-sand">
                 <Image
-                  src="/img/proyectos/payande-terraza-wide.webp"
+                  src={project.cover}
                   alt={project.title}
                   fill
                   sizes="(min-width: 1024px) 58vw, 100vw"
@@ -262,11 +286,12 @@ export default async function HomePage() {
           </Reveal>
         </div>
       </section>
+      )}
 
       {/* ───────────────────── Franja editorial ───────────────────── */}
       <section className="relative h-[75svh] min-h-[26rem] w-full">
         <Image
-          src="/img/proyectos/sala-chimenea-wide.webp"
+          src={editorialImage}
           alt="Sala con chimenea de piedra, paneles de madera y asientos junto a la ventana"
           fill
           sizes="100vw"
@@ -276,9 +301,7 @@ export default async function HomePage() {
         <div className="shell relative flex h-full items-center">
           <Reveal className="max-w-2xl">
             <p className="display text-[1.7rem] leading-[1.3] text-bone md:text-[2.5rem]">
-              Una casa bien resuelta no se nota. Se siente en la luz que
-              entra a la hora justa, en el material que da gusto tocar, en
-              el silencio de las cosas que están donde tienen que estar.
+              {editorialQuote}
             </p>
             <p className="mt-7 text-[0.7rem] uppercase tracking-[0.22em] text-bone/70">
               Tita &amp; Vicky

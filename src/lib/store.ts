@@ -2,7 +2,7 @@ import "server-only";
 import { promises as fs } from "node:fs";
 import path from "node:path";
 import { supabase, supabaseConfigured } from "./supabase";
-import type { Lead, Order, Product, PublicProduct, Settings } from "./types";
+import type { Lead, Order, Product, Project, PublicProduct, Settings } from "./types";
 
 /**
  * Capa de persistencia con dos backends:
@@ -249,6 +249,58 @@ export async function addLead(lead: Lead): Promise<void> {
   const leads = await getLeads();
   leads.unshift(lead);
   await saveLeads(leads);
+}
+
+// ─────────────────────────────────── Proyectos ──────────────────────────────
+
+const rowToProject = (row: { data: unknown }) => row.data as Project;
+
+const projectToRow = (p: Project) => ({
+  id: p.slug,
+  slug: p.slug,
+  data: p,
+  updated_at: new Date().toISOString(),
+});
+
+export async function getAllProjects(): Promise<Project[]> {
+  if (onDb()) {
+    const { data, error } = await supabase()
+      .from("projects")
+      .select("data")
+      .order("created_at", { ascending: false });
+    if (error) throw new Error(`No se pudieron leer los proyectos: ${error.message}`);
+    return (data ?? []).map(rowToProject);
+  }
+  return readJson<Project[]>("projects", []);
+}
+
+export async function saveProjects(projects: Project[]): Promise<void> {
+  if (onDb()) {
+    const db = supabase();
+    const { data: existing } = await db.from("projects").select("id");
+    const keep = new Set(projects.map((p) => p.slug));
+    const gone = (existing ?? []).map((r) => r.id as string).filter((id) => !keep.has(id));
+    if (gone.length) await db.from("projects").delete().in("id", gone);
+    if (projects.length) {
+      const { error } = await db.from("projects").upsert(projects.map(projectToRow));
+      if (error) throw new Error(`No se pudieron guardar los proyectos: ${error.message}`);
+    }
+    return;
+  }
+  await writeJson("projects", projects);
+}
+
+export async function getProjectBySlug(slug: string): Promise<Project | null> {
+  if (onDb()) {
+    const { data } = await supabase()
+      .from("projects")
+      .select("data")
+      .eq("slug", slug)
+      .maybeSingle();
+    return data ? rowToProject(data) : null;
+  }
+  const all = await getAllProjects();
+  return all.find((p) => p.slug === slug) ?? null;
 }
 
 /** Para mostrar en el admin de qué motor está leyendo el sitio. */

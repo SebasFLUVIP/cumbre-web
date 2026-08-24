@@ -9,12 +9,20 @@ export type ImageUploaderHandle = { addImages: (urls: string[]) => void };
 
 /**
  * Sube fotos a Supabase Storage vía /api/admin/upload y mantiene la lista de
- * URLs en un input oculto (`name="images"`) para que el formulario del
- * producto siga enviándose exactamente igual que antes -- upsertProduct no
- * necesitó cambiar nada.
+ * URLs en un input oculto (`name={name}`) para que el formulario siga
+ * enviándose igual que con una textarea -- upsertProduct/upsertProject no
+ * necesitan tratamiento especial.
  */
-const ImageUploader = forwardRef<ImageUploaderHandle, { initialImages: string[] }>(
-  function ImageUploader({ initialImages }, ref) {
+const ImageUploader = forwardRef<
+  ImageUploaderHandle,
+  {
+    initialImages: string[];
+    name?: string;
+    max?: number;
+    folder?: "productos" | "proyectos" | "home";
+    hint?: React.ReactNode;
+  }
+>(function ImageUploader({ initialImages, name = "images", max, folder = "productos", hint }, ref) {
   const [items, setItems] = useState<Item[]>(
     initialImages.map((url) => ({ url, status: "listo" as const }))
   );
@@ -22,14 +30,20 @@ const ImageUploader = forwardRef<ImageUploaderHandle, { initialImages: string[] 
   const [manual, setManual] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const atMax = typeof max === "number" && items.length >= max;
+
   async function uploadFiles(files: FileList | File[]) {
-    const list = Array.from(files).filter((f) => f.type.startsWith("image/"));
+    const remaining = typeof max === "number" ? Math.max(0, max - items.length) : Infinity;
+    const list = Array.from(files)
+      .filter((f) => f.type.startsWith("image/"))
+      .slice(0, remaining);
     for (const file of list) {
       const placeholder: Item = { url: URL.createObjectURL(file), status: "subiendo" };
       setItems((prev) => [...prev, placeholder]);
 
       const fd = new FormData();
       fd.set("file", file);
+      fd.set("folder", folder);
       try {
         const res = await fetch("/api/admin/upload", { method: "POST", body: fd });
         const json = await res.json();
@@ -85,53 +99,58 @@ const ImageUploader = forwardRef<ImageUploaderHandle, { initialImages: string[] 
 
   return (
     <div>
-      <input type="hidden" name="images" value={readyUrls.join("\n")} />
+      <input type="hidden" name={name} value={readyUrls.join("\n")} />
 
-      <div
-        onDragOver={(e) => {
-          e.preventDefault();
-          setDragOver(true);
-        }}
-        onDragLeave={() => setDragOver(false)}
-        onDrop={(e) => {
-          e.preventDefault();
-          setDragOver(false);
-          if (e.dataTransfer.files.length) uploadFiles(e.dataTransfer.files);
-        }}
-        onClick={() => inputRef.current?.click()}
-        className={`flex cursor-pointer flex-col items-center justify-center gap-2 border-2 border-dashed px-6 py-10 text-center transition-colors ${
-          dragOver ? "border-clay bg-clay/5" : "border-line hover:border-mute"
-        }`}
-      >
-        <span className="font-display text-lg font-light">
-          Arrastrá fotos acá, o hacé clic para elegirlas
-        </span>
-        <span className="text-[0.8rem] font-light text-mute">
-          JPG, PNG o WebP · se convierten y comprimen solas
-        </span>
-        <input
-          ref={inputRef}
-          type="file"
-          accept="image/*"
-          multiple
-          className="hidden"
-          onChange={(e) => {
-            if (e.target.files?.length) uploadFiles(e.target.files);
-            e.target.value = "";
+      {!atMax && (
+        <div
+          onDragOver={(e) => {
+            e.preventDefault();
+            setDragOver(true);
           }}
-        />
-      </div>
+          onDragLeave={() => setDragOver(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setDragOver(false);
+            if (e.dataTransfer.files.length) uploadFiles(e.dataTransfer.files);
+          }}
+          onClick={() => inputRef.current?.click()}
+          className={`flex cursor-pointer flex-col items-center justify-center gap-2 border-2 border-dashed px-6 py-10 text-center transition-colors ${
+            dragOver ? "border-clay bg-clay/5" : "border-line hover:border-mute"
+          }`}
+        >
+          <span className="font-display text-lg font-light">
+            Arrastrá {max === 1 ? "una foto" : "fotos"} acá, o hacé clic para elegir
+          </span>
+          <span className="text-[0.8rem] font-light text-mute">
+            JPG, PNG o WebP · se convierten y comprimen solas
+          </span>
+          <input
+            ref={inputRef}
+            type="file"
+            accept="image/*"
+            multiple={max !== 1}
+            className="hidden"
+            onChange={(e) => {
+              if (e.target.files?.length) uploadFiles(e.target.files);
+              e.target.value = "";
+            }}
+          />
+        </div>
+      )}
 
-      <p className="mt-3 text-[0.8rem] font-light leading-relaxed text-mute">
-        <strong className="text-espresso">Cuántas:</strong> 1 a 5 fotos. La primera
-        es la que se ve en la grilla de la tienda; el resto aparece en la
-        galería de la ficha. <strong className="text-espresso">Medidas ideales:</strong>{" "}
-        al menos 1600 px de lado ancho, formato cuadrado (1:1) o vertical (4:5)
-        para que se vea bien en la grilla — una foto de ambiente horizontal
-        también sirve como una más de la galería.{" "}
-        <strong className="text-espresso">Fondo:</strong> si es foto de estudio,
-        mejor sobre fondo claro y parejo.
-      </p>
+      {hint !== null &&
+        (hint ?? (
+          <p className="mt-3 text-[0.8rem] font-light leading-relaxed text-mute">
+            <strong className="text-espresso">Cuántas:</strong> 1 a 5 fotos. La primera
+            es la que se ve en la grilla de la tienda; el resto aparece en la
+            galería de la ficha. <strong className="text-espresso">Medidas ideales:</strong>{" "}
+            al menos 1600 px de lado ancho, formato cuadrado (1:1) o vertical (4:5)
+            para que se vea bien en la grilla — una foto de ambiente horizontal
+            también sirve como una más de la galería.{" "}
+            <strong className="text-espresso">Fondo:</strong> si es foto de estudio,
+            mejor sobre fondo claro y parejo.
+          </p>
+        ))}
 
       <details className="mt-4">
         <summary className="cursor-pointer text-[0.72rem] uppercase tracking-[0.14em] text-mute">
@@ -171,7 +190,7 @@ const ImageUploader = forwardRef<ImageUploaderHandle, { initialImages: string[] 
                 unoptimized={it.status !== "listo"}
                 className={`object-cover ${it.status === "subiendo" ? "opacity-50" : ""}`}
               />
-              {i === 0 && it.status === "listo" && (
+              {i === 0 && it.status === "listo" && items.length > 1 && (
                 <span className="absolute left-1 top-1 bg-ink/80 px-1.5 py-0.5 text-[0.6rem] uppercase tracking-[0.1em] text-bone">
                   Principal
                 </span>
@@ -189,24 +208,28 @@ const ImageUploader = forwardRef<ImageUploaderHandle, { initialImages: string[] 
               {it.status !== "subiendo" && (
                 <div className="absolute inset-x-0 bottom-0 flex justify-between bg-ink/70 px-1 py-1 opacity-0 transition-opacity group-hover:opacity-100">
                   <div className="flex gap-1">
-                    <button
-                      type="button"
-                      onClick={() => move(i, -1)}
-                      disabled={i === 0}
-                      className="px-1 text-[0.7rem] text-bone disabled:opacity-30"
-                      title="Mover antes"
-                    >
-                      ←
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => move(i, 1)}
-                      disabled={i === items.length - 1}
-                      className="px-1 text-[0.7rem] text-bone disabled:opacity-30"
-                      title="Mover después"
-                    >
-                      →
-                    </button>
+                    {max !== 1 && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => move(i, -1)}
+                          disabled={i === 0}
+                          className="px-1 text-[0.7rem] text-bone disabled:opacity-30"
+                          title="Mover antes"
+                        >
+                          ←
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => move(i, 1)}
+                          disabled={i === items.length - 1}
+                          className="px-1 text-[0.7rem] text-bone disabled:opacity-30"
+                          title="Mover después"
+                        >
+                          →
+                        </button>
+                      </>
+                    )}
                   </div>
                   <button
                     type="button"
@@ -224,7 +247,6 @@ const ImageUploader = forwardRef<ImageUploaderHandle, { initialImages: string[] 
       )}
     </div>
   );
-  }
-);
+});
 
 export default ImageUploader;

@@ -1,16 +1,21 @@
 import type { MetadataRoute } from "next";
-import { getPublicProducts } from "@/lib/store";
+import { getAllProjects, getPublicProducts } from "@/lib/store";
 import { CATEGORIES } from "@/lib/categories";
-import { PROJECTS } from "@/data/projects";
 
 const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://cumbredeco.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let products: Awaited<ReturnType<typeof getPublicProducts>> = [];
+  let projects: Awaited<ReturnType<typeof getAllProjects>> = [];
   try {
     products = await getPublicProducts();
   } catch {
     // El sitemap se genera igual con las rutas fijas.
+  }
+  try {
+    projects = await getAllProjects();
+  } catch {
+    // Idem.
   }
   const now = new Date();
 
@@ -43,7 +48,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
       priority: 0.7,
     })),
-    ...PROJECTS.map((p) => ({
+    ...projects.map((p) => ({
       url: `${BASE}/proyectos/${p.slug}`,
       lastModified: now,
       priority: 0.8,

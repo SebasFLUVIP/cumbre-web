@@ -5,16 +5,18 @@ import { redirect } from "next/navigation";
 import { requireAdmin } from "@/lib/auth";
 import {
   getAllProducts,
+  getAllProjects,
   getLeads,
   getOrders,
   getSettings,
   saveLeads,
   saveOrders,
   saveProducts,
+  saveProjects,
   saveSettings,
 } from "@/lib/store";
 import { slugifyText } from "@/lib/format";
-import type { CategoryId, Order, Product, Settings } from "@/lib/types";
+import type { CategoryId, Order, Product, Project, Settings } from "@/lib/types";
 
 const str = (fd: FormData, k: string) => String(fd.get(k) ?? "").trim();
 const num = (fd: FormData, k: string) => {
@@ -25,6 +27,13 @@ const num = (fd: FormData, k: string) => {
 const list = (fd: FormData, k: string) =>
   str(fd, k)
     .split(/\r?\n|·|,/)
+    .map((x) => x.trim())
+    .filter(Boolean);
+/** Como list(), pero solo corta por línea -- los párrafos de un proyecto
+ *  pueden traer comas propias que no son separadores. */
+const lines = (fd: FormData, k: string) =>
+  str(fd, k)
+    .split(/\r?\n/)
     .map((x) => x.trim())
     .filter(Boolean);
 
@@ -211,6 +220,27 @@ export async function saveSettingsAction(formData: FormData) {
   redirect("/admin/ajustes?guardado=1");
 }
 
+export async function saveHomeContentAction(formData: FormData) {
+  await requireAdmin();
+  const current = await getSettings();
+  const next: Settings = {
+    ...current,
+    homeHeroTitle: str(formData, "homeHeroTitle") || undefined,
+    homeHeroSubtitle: str(formData, "homeHeroSubtitle") || undefined,
+    homeHeroImageMobile: str(formData, "homeHeroImageMobile") || undefined,
+    homeHeroImageDesktop: str(formData, "homeHeroImageDesktop") || undefined,
+    homeManifestoEyebrow: str(formData, "homeManifestoEyebrow") || undefined,
+    homeManifestoHeading: str(formData, "homeManifestoHeading") || undefined,
+    homeManifestoBody: str(formData, "homeManifestoBody") || undefined,
+    homeEditorialImage: str(formData, "homeEditorialImage") || undefined,
+    homeEditorialQuote: str(formData, "homeEditorialQuote") || undefined,
+  };
+  await saveSettings(next);
+  revalidatePath("/admin/inicio");
+  revalidatePath("/");
+  redirect("/admin/inicio?guardado=1");
+}
+
 /**
  * Recalcula el precio de todos los productos con costo en dólares usando la TRM
  * y el margen vigentes. Útil cuando se mueve el dólar.
@@ -239,4 +269,67 @@ export async function repriceFromUSD() {
     revalidatePath(`/tienda/${cat}`);
   }
   redirect("/admin/productos?repreciado=1");
+}
+
+// ─────────────────────────────────── Proyectos ──────────────────────────────
+
+export async function upsertProject(formData: FormData) {
+  await requireAdmin();
+
+  const title = str(formData, "title");
+  if (!title) throw new Error("El título es obligatorio");
+
+  const slug = str(formData, "slug") || slugifyText(title);
+  const originalSlug = str(formData, "originalSlug");
+
+  const galleryRaw = str(formData, "gallery");
+  let gallery: Project["gallery"] = [];
+  try {
+    gallery = galleryRaw ? JSON.parse(galleryRaw) : [];
+  } catch {
+    gallery = [];
+  }
+
+  const cover = str(formData, "cover") || gallery[0]?.src || "";
+
+  const project: Project = {
+    slug,
+    title,
+    location: str(formData, "location"),
+    year: str(formData, "year"),
+    category: str(formData, "category"),
+    summary: str(formData, "summary"),
+    scope: lines(formData, "scope"),
+    body: lines(formData, "body"),
+    cover,
+    gallery,
+    featured: formData.get("featured") === "on",
+  };
+
+  const projects = await getAllProjects();
+  const withoutOld = projects.filter(
+    (p) => p.slug !== slug && (!originalSlug || p.slug !== originalSlug)
+  );
+  await saveProjects([project, ...withoutOld]);
+
+  revalidatePath("/admin/proyectos");
+  revalidatePath("/proyectos");
+  revalidatePath(`/proyectos/${slug}`);
+  if (originalSlug && originalSlug !== slug) revalidatePath(`/proyectos/${originalSlug}`);
+  if (project.featured || projects.some((p) => p.slug === originalSlug && p.featured)) {
+    revalidatePath("/");
+  }
+  redirect("/admin/proyectos?guardado=1");
+}
+
+export async function deleteProject(formData: FormData) {
+  await requireAdmin();
+  const slug = String(formData.get("slug") ?? "");
+  const projects = await getAllProjects();
+  const removed = projects.find((p) => p.slug === slug);
+  await saveProjects(projects.filter((p) => p.slug !== slug));
+  revalidatePath("/admin/proyectos");
+  revalidatePath("/proyectos");
+  if (removed?.featured) revalidatePath("/");
+  redirect("/admin/proyectos?eliminado=1");
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { PROJECTS } from "@/data/projects";
+import { getAllProjects } from "@/lib/store";
 import Reveal from "@/components/Reveal";
 import LeadForm from "@/components/LeadForm";
 
@@ -40,8 +40,18 @@ const PROCESO = [
   },
 ];
 
-export default function ProyectosPage() {
-  const [hero, ...rest] = PROJECTS;
+export default async function ProyectosPage() {
+  const projects = await getAllProjects().catch(() => []);
+  const hero = projects.find((p) => p.featured) ?? projects[0];
+  const rest = projects.filter((p) => p.slug !== hero?.slug);
+
+  if (!hero) {
+    return (
+      <div className="shell py-24 text-center">
+        <p className="font-display text-2xl font-light">Estamos armando esta sección</p>
+      </div>
+    );
+  }
 
   return (
     <>

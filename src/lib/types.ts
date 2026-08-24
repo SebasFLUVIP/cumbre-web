@@ -88,6 +88,18 @@ export type Settings = {
   /** Link de agenda (Calendly, Cal.com, etc.) para la primera consulta.
    *  Vacío = el CTA cae de vuelta a la sección de contacto del sitio. */
   calendarUrl?: string;
+
+  // ── Contenido editable del home ──
+  // Todos opcionales: si faltan, el home usa el copy de siempre como default.
+  homeHeroTitle?: string;
+  homeHeroSubtitle?: string;
+  homeHeroImageMobile?: string;
+  homeHeroImageDesktop?: string;
+  homeManifestoEyebrow?: string;
+  homeManifestoHeading?: string;
+  homeManifestoBody?: string;
+  homeEditorialImage?: string;
+  homeEditorialQuote?: string;
 };
 
 export type OrderItem = {
