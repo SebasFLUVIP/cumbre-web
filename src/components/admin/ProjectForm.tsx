@@ -49,7 +49,10 @@ export default function ProjectForm({
             <Field label="Título" wide>
               <input name="title" required defaultValue={project?.title} className={input} />
             </Field>
-            <Field label="URL (slug)" hint="Se genera del título si lo dejás vacío.">
+            <Field
+              label="URL (slug)"
+              hint="Se genera del título si lo dejás vacío. Sin espacios ni tildes: se ve como cumbredeco.com/proyectos/lo-que-escribas-aca."
+            >
               <input name="slug" defaultValue={project?.slug} className={input} />
             </Field>
             <Field label="Categoría" hint='Ej.: "Proyecto integral", "Asesoría y styling".'>

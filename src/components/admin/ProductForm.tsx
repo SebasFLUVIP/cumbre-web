@@ -133,7 +133,10 @@ export default function ProductForm({
                 className={input}
               />
             </Field>
-            <Field label="URL (slug)" hint="Se genera del nombre si lo dejás vacío.">
+            <Field
+              label="URL (slug)"
+              hint="Se genera del nombre si lo dejás vacío. Sin espacios ni tildes: se ve como cumbredeco.com/producto/lo-que-escribas-aca."
+            >
               <input name="slug" defaultValue={product?.slug} className={input} />
             </Field>
             <Field label="Categoría">

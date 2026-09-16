@@ -88,7 +88,7 @@ export async function upsertProduct(formData: FormData) {
 
   const product: Product = {
     id: existing?.id ?? `p_${Date.now().toString(36)}`,
-    slug: str(formData, "slug") || slugifyText(name),
+    slug: slugifyText(str(formData, "slug") || name),
     name,
     category: (str(formData, "category") || "objetos") as CategoryId,
     subcategory: str(formData, "subcategory") || undefined,
@@ -279,7 +279,7 @@ export async function upsertProject(formData: FormData) {
   const title = str(formData, "title");
   if (!title) throw new Error("El título es obligatorio");
 
-  const slug = str(formData, "slug") || slugifyText(title);
+  const slug = slugifyText(str(formData, "slug") || title);
   const originalSlug = str(formData, "originalSlug");
 
   const galleryRaw = str(formData, "gallery");
