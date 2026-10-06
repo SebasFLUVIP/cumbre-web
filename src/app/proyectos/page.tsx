@@ -16,27 +16,27 @@ const PROCESO = [
   {
     n: "01",
     t: "Nos conocemos",
-    d: "Una primera llamada o videollamada sin costo para entender el espacio, cómo lo viven y hasta dónde quieren llegar. De ahí sale un alcance y un rango de inversión. La visita presencial ya hace parte de la asesoría.",
+    d: "Una primera conversación para entender qué necesitas, cómo vives el espacio y hasta dónde quieres llegar. A partir de ahí definimos el alcance del proyecto y una inversión estimada.",
   },
   {
     n: "02",
-    t: "Concepto y planos",
-    d: "Distribución, paleta de materiales, referencias y renders cuando hacen falta. Acá se decide todo: después la obra solo ejecuta.",
+    t: "Diseñamos",
+    d: "Definimos distribución, materiales, colores, mobiliario e iluminación. Cuando el proyecto lo requiere, desarrollamos planos y renders para visualizar el resultado antes de empezar.",
   },
   {
     n: "03",
-    t: "Diseño de detalle",
-    d: "Planos de carpintería, despieces de piedra, plano de iluminación punto por punto y las fichas de cada mueble a medida.",
+    t: "Definimos cada detalle",
+    d: "Diseñamos el mobiliario a medida y definimos materiales, acabados, iluminación y todos los detalles necesarios para llevar el proyecto a la realidad.",
   },
   {
     n: "04",
-    t: "Compras y fabricación",
-    d: "Nos encargamos de proveedores, tiempos y calidad. Ustedes aprueban; nosotras perseguimos.",
+    t: "Hacemos que suceda",
+    d: "Coordinamos compras, proveedores, fabricación y tiempos, acompañando cada etapa para que todo salga como fue pensado.",
   },
   {
     n: "05",
-    t: "Montaje",
-    d: "Instalamos, vestimos y entregamos la casa lista para vivir. Sin cajas, sin pendientes.",
+    t: "Vestimos y entregamos",
+    d: "Instalamos, decoramos y damos los últimos detalles para entregar un espacio terminado y listo para vivir.",
   },
 ];
 
@@ -59,13 +59,16 @@ export default async function ProyectosPage() {
         <div className="shell py-16 md:py-24">
           <p className="eyebrow">Proyectos</p>
           <h1 className="display mt-4 max-w-3xl text-[2.6rem] md:text-[4rem]">
-            Cada proyecto, una travesía hacia la calma
+            Espacios pensados para quienes los viven.
           </h1>
           <p className="mt-7 max-w-2xl text-[1.05rem] font-light leading-relaxed text-mute">
-            Un espacio no se termina cuando se instala el último mueble, sino
-            cuando alguien entra y baja los hombros sin darse cuenta. Hacia eso
-            trabajamos: proyectos integrales de interiorismo y remodelación en
-            apartamentos de Bogotá y casas de campo en Anapoima y Villeta.
+            Cada proyecto empieza por entender cómo quieres vivir tu espacio.
+            Diseñamos, transformamos y cuidamos cada detalle para crear
+            ambientes funcionales, cálidos y personales.
+          </p>
+          <p className="mt-5 max-w-2xl text-[1.05rem] font-light leading-relaxed text-mute">
+            No repetimos fórmulas. Cada proyecto es diferente porque cada forma
+            de vivir también lo es.
           </p>
         </div>
       </header>

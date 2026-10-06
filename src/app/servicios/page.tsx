@@ -12,94 +12,148 @@ export const metadata: Metadata = {
   alternates: { canonical: "/servicios" },
 };
 
-const SERVICIOS = [
+type Servicio = {
+  id: string;
+  title: string;
+  navLabel?: string;
+  lead?: string;
+  body: string[];
+  incluye?: string[];
+  para?: string;
+  cross?: { href: string; text: string };
+  image: string;
+};
+
+const SERVICIOS: Servicio[] = [
   {
     id: "proyecto-integral",
-    n: "01",
     title: "Proyecto integral",
-    lead: "La casa entera, de planos a montaje.",
-    body: "Tomamos el espacio como viene —obra gris, casa usada o apartamento a estrenar— y lo entregamos listo para vivir. Distribución, materiales, iluminación, carpintería, muebles a medida, compras y montaje final. Coordinamos a los contratistas y perseguimos los tiempos para que ustedes no tengan que hacerlo.",
+    lead: "De la primera idea al último detalle.",
+    body: [
+      "Tomamos el proyecto completo y nos encargamos de llevarlo de principio a fin. Diseñamos la distribución, definimos materiales e iluminación, desarrollamos muebles a medida y coordinamos compras, proveedores y montaje.",
+      "El objetivo: entregar un espacio terminado, vestido y listo para vivir.",
+    ],
     incluye: [
       "Levantamiento y propuesta de distribución",
-      "Paleta de materiales y acabados",
-      "Plano de iluminación punto por punto",
+      "Selección de materiales y acabados",
+      "Diseño de iluminación",
       "Diseño de carpintería y muebles a medida",
-      "Gestión de proveedores y compras",
-      "Montaje y entrega vestida",
+      "Selección y compra de mobiliario y decoración",
+      "Gestión de proveedores y coordinación",
+      "Styling, montaje y entrega final",
     ],
-    para: "Casas y apartamentos completos, remodelaciones y casas de campo.",
+    para: "Casas y apartamentos completos, propiedades nuevas, remodelaciones y casas de campo.",
     image: "/img/proyectos/payande-terraza-wide.webp",
   },
   {
-    id: "asesoria",
-    n: "02",
-    title: "Asesoría de diseño",
-    lead: "Una visita, un plan claro para ejecutar por tu cuenta.",
-    body: "Vamos al espacio, lo medimos, escuchamos cómo lo viven y salimos con un plan concreto: qué mover, qué comprar, qué color, qué luz. Te dejamos un documento con la propuesta, medidas y una lista de compras con proveedores y precios. Es la opción cuando querés dirigir vos la ejecución.",
+    id: "asesoria-puntual",
+    title: "Asesoría puntual · 2 horas",
+    navLabel: "Asesoría puntual",
+    body: [
+      "Una asesoría presencial pensada para resolver dudas concretas sobre un espacio. Recorremos juntos lo que quieres cambiar y te ayudamos a tomar decisiones sobre distribución, color, iluminación, elección de muebles, styling, textiles y decoración.",
+      "Te llevas ideas claras y soluciones que puedes empezar a aplicar de inmediato.",
+    ],
     incluye: [
-      "Visita al espacio y levantamiento de medidas",
+      "Visita presencial de 2 horas",
+      "Revisión del espacio y sus posibilidades",
+      "Recomendaciones de distribución",
+      "Orientación en colores, materiales e iluminación",
+      "Recomendaciones de mobiliario y decoración",
+    ],
+    para: "Quienes necesitan una mirada profesional para resolver dudas puntuales sin desarrollar un proyecto completo.",
+    cross: {
+      href: "#asesoria",
+      text: "Asesoría de diseño → para quien necesita una propuesta completa de uno o varios ambientes, con medidas, distribución, materiales, selección de piezas y lista de compras.",
+    },
+    image: "/img/proyectos/apto-bogota-styling-tall.webp",
+  },
+  {
+    id: "asesoria",
+    title: "Asesoría de diseño",
+    lead: "Un plan completo para transformar tu espacio.",
+    body: [
+      "Para espacios que necesitan algo más que recomendaciones puntuales. Visitamos, medimos y desarrollamos una propuesta de diseño con las decisiones necesarias para que después puedas ejecutarla por tu cuenta.",
+    ],
+    incluye: [
+      "Visita y levantamiento de medidas",
       "Propuesta de distribución y ambientación",
-      "Paleta de color y materiales",
+      "Paleta de colores, materiales y acabados",
+      "Selección de mobiliario, iluminación y decoración",
       "Lista de compras con proveedores y precios",
       "Una ronda de ajustes",
     ],
-    para: "Un espacio puntual: sala, habitación principal, terraza, apartamento pequeño.",
+    para: "Quienes quieren transformar uno o varios ambientes con una propuesta definida, pero prefieren encargarse de las compras y la ejecución.",
     image: "/img/proyectos/pacifica-materiales-tall.webp",
   },
   {
     id: "remodelacion",
-    n: "03",
     title: "Remodelación",
-    lead: "Cuando hay que tumbar, mover o rehacer.",
-    body: "Cocinas, baños, ampliaciones de terraza y redistribuciones que implican obra. Diseñamos, cotizamos con contratistas de confianza y coordinamos la ejecución de principio a fin, con cronograma y control de presupuesto.",
+    navLabel: "Remodelaciones",
+    lead: "Transformamos el espacio desde su estructura.",
+    body: [
+      "Cuando un proyecto necesita algo más que decoración, diseñamos y coordinamos la remodelación. Cocinas, baños, terrazas o redistribuciones: definimos la propuesta, desarrollamos los planos y acompañamos la obra para que el resultado final responda al diseño.",
+    ],
     incluye: [
       "Diseño y planos de obra",
-      "Cotización comparada con contratistas",
-      "Cronograma y control de presupuesto",
-      "Supervisión semanal en sitio",
-      "Entrega con acta de pendientes cerrada",
+      "Selección de materiales y acabados",
+      "Cotización con contratistas",
+      "Cronograma y seguimiento de presupuesto",
+      "Supervisión de obra",
+      "Seguimiento de detalles y entrega final",
     ],
-    para: "Cocinas, baños, terrazas y redistribuciones.",
+    para: "Cocinas, baños, terrazas y espacios que necesitan una transformación más profunda.",
     image: "/img/proyectos/pacifica-sala-doble-altura-tall.webp",
   },
   {
     id: "a-medida",
-    n: "04",
     title: "Muebles a medida",
-    lead: "Lo que necesitás, en la medida exacta.",
-    body: "Diseñamos y fabricamos comedores, espaldares, mesas de noche, consolas, bancas y muebles de exterior. Trabajamos madera maciza, tapizado, fibras naturales, piedra y hierro con talleres colombianos que conocemos hace años. Nos mandás la medida y una referencia, y te cotizamos.",
+    lead: "Diseñados para tu espacio. Hechos para durar.",
+    body: [
+      "Diseñamos y fabricamos muebles a medida, cuidando proporciones, materiales, funcionalidad y acabados. Trabajamos con madera, tapizados, fibras naturales, piedra y hierro, junto a talleres y proveedores de confianza.",
+      "Podemos partir de una necesidad, una idea o una referencia y desarrollar una pieza pensada especialmente para tu espacio.",
+    ],
     incluye: [
-      "Diseño y render del mueble",
-      "Muestras de madera, tela y acabado",
-      "Fabricación en taller propio y aliados",
-      "Entrega e instalación en Bogotá y alrededores",
+      "Diseño y definición de medidas",
+      "Selección de materiales, telas y acabados",
+      "Render o propuesta visual, cuando el diseño lo requiera",
+      "Fabricación con talleres especializados",
+      "Entrega e instalación",
       "Garantía de un año en estructura",
     ],
-    para: "Espaldares, comedores, consolas, closets, muebles de exterior.",
+    para: "Comedores, mesas, espaldares, consolas, bibliotecas, escritorios, muebles de TV, closets, bancas y mobiliario de exterior.",
     image: "/img/proyectos/estudio-a-medida-tall.webp",
+  },
+  {
+    id: "hogar-listo",
+    title: "Hogar listo en Colombia",
+    lead: "Llegas a Colombia. Tu casa ya está lista.",
+    body: [
+      "Nos encargamos del diseño, mobiliario, compras, decoración e instalación para que encuentres tu nuevo hogar completamente preparado para vivir.",
+    ],
+    image: "/img/proyectos/sala-sillas-rayas-wide.webp",
   },
 ];
 
 const FAQ = [
   {
     q: "¿Trabajan fuera de Bogotá?",
-    a: "Sí. Además de Bogotá y la sabana, hacemos proyectos en Anapoima, Villeta y la zona de tierra caliente cercana. Para proyectos más lejos, lo evaluamos según el alcance.",
+    a: "Sí. Trabajamos en Bogotá, la Sabana y tierra caliente. Para proyectos en otras ciudades o zonas de Colombia, evaluamos el alcance y la logística de cada proyecto.",
   },
   {
     q: "¿Cómo cobran?",
-    a: "La asesoría de diseño tiene una tarifa fija que depende del tamaño del espacio. Los proyectos integrales se cobran por honorarios de diseño más un porcentaje de gestión sobre las compras. Te lo dejamos todo por escrito antes de empezar.",
+    a: "Depende del tipo y alcance del proyecto. Las asesorías tienen un valor definido según el espacio y, en los proyectos integrales, los honorarios se establecen de acuerdo con el alcance y la gestión requerida. Antes de empezar, dejamos claro qué incluye el servicio y cuál será la inversión.",
   },
   {
     q: "¿Cuánto se demora un proyecto?",
-    a: "Una asesoría se entrega en dos a tres semanas. Un proyecto integral sin obra toma entre dos y cuatro meses, según los tiempos de fabricación. Con obra, depende del alcance y te damos un cronograma en la propuesta.",
+    a: "Depende de lo que necesites. Para consultas o cambios puntuales, ofrecemos asesorías de 2 horas. Si el espacio requiere una propuesta más desarrollada, una asesoría de diseño puede tomar entre 2 y 3 semanas. Un proyecto integral suele tomar entre 2 y 4 meses, dependiendo de los tiempos de fabricación y compras. Cuando hay remodelación u obra, definimos un cronograma específico según el alcance.",
   },
   {
     q: "¿Puedo comprar solo algunos objetos de la tienda?",
-    a: "Claro. La tienda funciona sola: comprás lo que quieras y te lo enviamos a toda Colombia. Y si después querés asesoría, la primera llamada no tiene costo.",
+    a: "Sí. Puedes comprar nuestras piezas de manera independiente, sin contratar un servicio de diseño. Hacemos envíos a toda Colombia.",
   },
   {
-    q: "¿Hacen render?",
-    a: "Cuando el proyecto lo pide, sí. En espacios donde la decisión es difícil de imaginar —una cocina, una redistribución— el render evita sorpresas.",
+    q: "¿Hacen renders?",
+    a: "Sí, cuando el proyecto lo requiere. Los usamos para visualizar el espacio antes de ejecutarlo y tomar decisiones con mayor seguridad, especialmente en remodelaciones, cambios de distribución o diseños de mobiliario a medida.",
   },
 ];
 
@@ -112,13 +166,13 @@ export default async function ServiciosPage() {
         <div className="shell py-16 md:py-24">
           <p className="eyebrow">Servicios</p>
           <h1 className="display mt-4 max-w-3xl text-[2.6rem] md:text-[4rem]">
-            Del primer boceto a la última luz encendida
+            De una idea puntual a una transformación completa
           </h1>
           <p className="mt-7 max-w-2xl text-[1.05rem] font-light leading-relaxed text-mute">
-            Desde una visita puntual hasta un proyecto completo con obra. Elegí
-            hasta dónde querés que lleguemos. La primera llamada o videollamada
-            no tiene costo; a partir de la visita al espacio, empieza a correr
-            la asesoría.
+            Podemos ayudarte a resolver un espacio, acompañarte en decisiones
+            de decoración o encargarnos de todo el proyecto. Diseñamos,
+            buscamos, fabricamos, remodelamos, decoramos y dejamos cada espacio
+            listo para vivir.
           </p>
           <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3">
             {SERVICIOS.map((sv) => (
@@ -127,7 +181,7 @@ export default async function ServiciosPage() {
                 href={`#${sv.id}`}
                 className="text-[0.7rem] uppercase tracking-[0.16em] text-mute link-underline hover:text-ink"
               >
-                {sv.title}
+                {sv.navLabel ?? sv.title}
               </a>
             ))}
           </div>
@@ -156,34 +210,55 @@ export default async function ServiciosPage() {
             </Reveal>
             <Reveal delay={100} className="lg:col-span-6">
               <span className="font-display text-[2.4rem] font-light text-clay/50">
-                {sv.n}
+                {String(i + 1).padStart(2, "0")}
               </span>
               <h2 className="display mt-1 text-[2.1rem] md:text-[2.9rem]">
                 {sv.title}
               </h2>
-              <p className="mt-4 text-[1.05rem] font-light text-espresso">
-                {sv.lead}
-              </p>
-              <p className="mt-5 text-[1.02rem] font-light leading-relaxed text-mute">
-                {sv.body}
-              </p>
-              <h3 className="eyebrow mt-9">Incluye</h3>
-              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                {sv.incluye.map((x) => (
-                  <li
-                    key={x}
-                    className="flex gap-3 text-[0.88rem] font-light leading-relaxed"
-                  >
-                    <span className="text-clay-deep">—</span>
-                    {x}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-7 border-t border-line pt-5 text-[0.85rem] font-light text-mute">
-                <span className="eyebrow">Ideal para</span>
-                <br />
-                {sv.para}
-              </p>
+              {sv.lead && (
+                <p className="mt-4 text-[1.05rem] font-light text-espresso">
+                  {sv.lead}
+                </p>
+              )}
+              {sv.body.map((para) => (
+                <p
+                  key={para}
+                  className="mt-5 text-[1.02rem] font-light leading-relaxed text-mute"
+                >
+                  {para}
+                </p>
+              ))}
+              {sv.incluye && (
+                <>
+                  <h3 className="eyebrow mt-9">Incluye</h3>
+                  <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                    {sv.incluye.map((x) => (
+                      <li
+                        key={x}
+                        className="flex gap-3 text-[0.88rem] font-light leading-relaxed"
+                      >
+                        <span className="text-clay-deep">—</span>
+                        {x}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+              {sv.para && (
+                <p className="mt-7 border-t border-line pt-5 text-[0.85rem] font-light text-mute">
+                  <span className="eyebrow">Ideal para</span>
+                  <br />
+                  {sv.para}
+                </p>
+              )}
+              {sv.cross && (
+                <a
+                  href={sv.cross.href}
+                  className="mt-5 block text-[0.88rem] font-light leading-relaxed text-clay-deep link-underline"
+                >
+                  {sv.cross.text}
+                </a>
+              )}
               <a
                 href="#hablemos"
                 className="mt-8 inline-block bg-ink px-8 py-4 text-[0.7rem] uppercase tracking-[0.2em] text-bone transition-colors hover:bg-espresso"
@@ -223,36 +298,39 @@ export default async function ServiciosPage() {
           <div className="lg:col-span-5">
             <p className="eyebrow">Hablemos</p>
             <h2 className="display mt-4 text-[2.2rem] md:text-[3rem]">
-              La primera llamada no tiene costo
+              Contanos qué tenés en mente
             </h2>
             <p className="mt-6 text-[1.02rem] font-light leading-relaxed text-mute">
-              Contanos qué espacio querés resolver y coordinamos una llamada o
-              videollamada sin costo, donde salimos con una propuesta de alcance
-              y un rango de inversión. La visita al espacio hace parte de la
-              asesoría y se cotiza aparte.
+              La primera llamada o videollamada no tiene costo. Queremos
+              conocer tu espacio, entender qué necesitás y contarte cómo
+              podemos ayudarte.
             </p>
-            <div className="mt-8 space-y-2 text-[0.9rem] font-light">
-              <p>
-                <a
-                  href={`https://wa.me/${s.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-underline"
-                >
-                  WhatsApp
-                </a>
-              </p>
-              <p>
-                <a href={`mailto:${s.email}`} className="link-underline">
-                  {s.email}
-                </a>
-              </p>
+            <p className="mt-4 text-[1.02rem] font-light leading-relaxed text-mute">
+              A partir de ahí definimos qué tipo de servicio se adapta mejor a
+              tu proyecto y los próximos pasos. Si es necesaria una visita al
+              espacio, se coordina como parte de la asesoría.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
+              <a
+                href={`https://wa.me/${s.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-ink px-8 py-4 text-[0.7rem] uppercase tracking-[0.2em] text-bone transition-colors hover:bg-espresso"
+              >
+                Hablar por WhatsApp
+              </a>
+              <a
+                href={`mailto:${s.email}`}
+                className="text-[0.9rem] font-light link-underline"
+              >
+                {s.email}
+              </a>
             </div>
             <Link
               href="/proyectos"
               className="mt-8 inline-block text-[0.7rem] uppercase tracking-[0.16em] text-mute link-underline"
             >
-              Ver proyectos terminados
+              Ver nuestros proyectos
             </Link>
           </div>
           <div className="lg:col-span-7">
