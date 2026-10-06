@@ -46,6 +46,24 @@ const SERVICIOS: Servicio[] = [
     image: "/img/proyectos/payande-terraza-wide.webp",
   },
   {
+    id: "decoracion-styling",
+    title: "Decoración & Styling",
+    lead: "Los detalles que terminan de transformar un espacio.",
+    body: [
+      "Trabajamos sobre espacios que ya están amoblados o encaminados, pero necesitan sentirse más completos y conectados. Seleccionamos y combinamos textiles, iluminación, arte, objetos, alfombras y accesorios para darle calidez, equilibrio y personalidad.",
+    ],
+    incluye: [
+      "Revisión del espacio y de las piezas existentes",
+      "Propuesta de decoración y styling",
+      "Selección de textiles, alfombras, iluminación, arte y objetos",
+      "Integración de piezas nuevas con las que ya tienes",
+      "Selección y compra de piezas",
+      "Montaje y styling final, según el alcance",
+    ],
+    para: "Espacios que no necesitan empezar de cero, pero sí una mirada profesional que los termine de conectar.",
+    image: "/img/proyectos/estilo-sala-lino-tall.webp",
+  },
+  {
     id: "asesoria-puntual",
     title: "Asesoría puntual · 2 horas",
     navLabel: "Asesoría puntual",
@@ -84,6 +102,23 @@ const SERVICIOS: Servicio[] = [
     ],
     para: "Quienes quieren transformar uno o varios ambientes con una propuesta definida, pero prefieren encargarse de las compras y la ejecución.",
     image: "/img/proyectos/pacifica-materiales-tall.webp",
+  },
+  {
+    id: "asesoria-compras",
+    title: "Asesoría en compras",
+    lead: "Te ayudamos a elegir bien antes de comprar.",
+    body: [
+      "Te acompañamos en la búsqueda y selección de muebles, iluminación, alfombras, textiles y objetos para tu casa. Definimos qué necesitas y buscamos opciones que funcionen por medidas, estilo, materiales y presupuesto, evitando compras que después no encajan en el espacio.",
+    ],
+    incluye: [
+      "Definición de necesidades y presupuesto",
+      "Selección de piezas según el espacio",
+      "Búsqueda de opciones y proveedores",
+      "Recomendaciones de materiales, medidas y acabados",
+      "Acompañamiento en tiendas o selección online, según el caso",
+    ],
+    para: "Quienes quieren encargarse de su casa, pero necesitan ayuda profesional para elegir y comprar las piezas correctas.",
+    image: "/img/proyectos/estilo-repisas-tall.webp",
   },
   {
     id: "remodelacion",
