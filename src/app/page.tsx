@@ -13,10 +13,9 @@ const DEFAULTS = {
   heroImageMobile: "/img/proyectos/cumbre-principal-tall.webp",
   heroImageDesktop: "/img/proyectos/cumbre-principal-wide.webp",
   manifestoEyebrow: "Un homenaje a lo natural",
-  manifestoHeading:
-    "Creamos Cumbre a partir de lo que nos representa: lo simple y lo natural. Creemos que tu casa tiene que contar tu historia.",
+  manifestoHeading: "Creemos en lo simple, lo natural y lo bien hecho.",
   manifestoBody:
-    "Trabajamos con madera que envejece bien, piedra que guarda el frío de la mañana y fibras tejidas a mano por artesanas colombianas. Materiales que no buscan llamar la atención: buscan durar, y volverse más lindos con los años.",
+    "Madera, piedra, fibras naturales y piezas hechas a mano forman parte de nuestra manera de diseñar. Elegimos materiales por su textura, su calidez y su capacidad de envejecer bien y acompañar la vida de una casa.",
   editorialImage: "/img/proyectos/sala-chimenea-wide.webp",
   editorialQuote:
     "Una casa bien resuelta no se nota. Se siente en la luz que entra a la hora justa, en el material que da gusto tocar, en el silencio de las cosas que están donde tienen que estar.",
