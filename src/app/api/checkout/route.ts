@@ -30,7 +30,7 @@ export async function POST(req: Request) {
     return NextResponse.json(
       {
         error:
-          "La pasarela de pagos todavía no tiene llaves configuradas. Agregá NEXT_PUBLIC_WOMPI_PUBLIC_KEY y WOMPI_INTEGRITY_SECRET en .env.local.",
+          "La pasarela de pagos todavía no tiene llaves configuradas. Agrega NEXT_PUBLIC_WOMPI_PUBLIC_KEY y WOMPI_INTEGRITY_SECRET en .env.local.",
       },
       { status: 503 }
     );

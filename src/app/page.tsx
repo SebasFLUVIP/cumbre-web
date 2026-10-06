@@ -25,7 +25,7 @@ export default async function HomePage() {
   const [products, settings, projects] = await Promise.all([
     getPublicProducts(),
     getSettings(),
-    getAllProjects().catch(() => []),
+    getAllProjects().then((all) => all.filter((p) => !p.draft)).catch(() => []),
   ]);
   const featured = products
     .filter((p) => p.featured && p.images.length > 0)
@@ -147,7 +147,7 @@ export default async function HomePage() {
           <div>
             <p className="eyebrow">La tienda</p>
             <h2 className="display mt-3 text-[2.2rem] md:text-[3rem]">
-              Empezá por donde te llame
+              Empieza por donde te llame
             </h2>
           </div>
           <Link
@@ -239,7 +239,7 @@ export default async function HomePage() {
               No entregamos una carpeta de planos: entregamos una casa que ya
               sabe recibir. Distribución, materiales, luz, muebles hechos a tu
               medida y montaje. De los apartamentos de Bogotá a las casas de
-              campo de Anapoima y Villeta, donde el clima pide otra cosa y hay
+              tierra caliente, donde el clima pide otra cosa y hay
               que saber escucharlo.
             </p>
             <dl className="mt-9 grid grid-cols-2 gap-y-6 border-t border-line pt-8">
@@ -273,7 +273,7 @@ export default async function HomePage() {
                 href="/servicios"
                 className="bg-ink px-8 py-4 text-[0.7rem] uppercase tracking-[0.2em] text-bone transition-colors hover:bg-espresso"
               >
-                Contanos tu proyecto
+                Cuéntanos tu proyecto
               </Link>
               <Link
                 href={`/proyectos/${project.slug}`}
@@ -286,6 +286,31 @@ export default async function HomePage() {
         </div>
       </section>
       )}
+
+      {/* ─────────────────────── Hogar listo en Colombia ─────────────────────── */}
+      <section className="border-y border-line bg-sand/40 py-20 md:py-28">
+        <div className="shell grid items-center gap-10 lg:grid-cols-12 lg:gap-16">
+          <Reveal className="lg:col-span-7">
+            <p className="eyebrow">Hogar listo en Colombia</p>
+            <h2 className="display mt-4 text-[2.2rem] md:text-[3rem]">
+              Llegas a Colombia. Tu casa ya está lista.
+            </h2>
+            <p className="mt-6 max-w-2xl text-[1.02rem] font-light leading-relaxed text-mute">
+              Nos encargamos del diseño, mobiliario, compras, decoración e
+              instalación para que encuentres tu nuevo hogar completamente
+              preparado para vivir.
+            </p>
+          </Reveal>
+          <div className="lg:col-span-5 lg:text-right">
+            <Link
+              href="/servicios#hogar-listo"
+              className="inline-block bg-ink px-8 py-4 text-[0.7rem] uppercase tracking-[0.2em] text-bone transition-colors hover:bg-espresso"
+            >
+              Conocer el servicio
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* ───────────────────── Franja editorial ───────────────────── */}
       <section className="relative h-[75svh] min-h-[26rem] w-full">
@@ -318,8 +343,8 @@ export default async function HomePage() {
               La primera llamada no tiene costo
             </h2>
             <p className="mt-6 text-[1.02rem] font-light leading-relaxed text-mute">
-              Contanos qué espacio querés resolver y hacemos una primera
-              llamada o videollamada sin costo. De ahí salís con una propuesta
+              Cuéntanos qué espacio quieres resolver y hacemos una primera
+              llamada o videollamada sin costo. De ahí sales con una propuesta
               de alcance y un rango de inversión, sin compromiso. La visita al
               espacio ya hace parte de la asesoría y se cotiza aparte.
             </p>
@@ -329,7 +354,7 @@ export default async function HomePage() {
               rel="noopener noreferrer"
               className="mt-8 inline-block text-[0.7rem] uppercase tracking-[0.18em] text-clay-deep link-underline"
             >
-              O escribinos por WhatsApp
+              O escríbenos por WhatsApp
             </a>
 
             {/* Firma: quién contesta del otro lado. */}
@@ -373,7 +398,7 @@ export default async function HomePage() {
               Cumbre en Colombia, Cufania en Argentina
             </h2>
             <p className="mt-5 max-w-2xl text-[1.02rem] font-light leading-relaxed text-mute">
-              Si te mudás de Colombia a Argentina —o al revés— no empezás de
+              Si te mudas de Colombia a Argentina —o al revés— no empiezas de
               cero. Trabajamos con Cufania Home en Buenos Aires: te recibimos
               del otro lado con el mismo criterio, el mismo acompañamiento y una
               casa lista para estrenar.

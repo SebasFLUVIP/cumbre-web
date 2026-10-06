@@ -25,7 +25,7 @@ export default function CartPageClient({
             Todavía no hay nada acá
           </p>
           <p className="mx-auto mt-4 max-w-md text-[0.93rem] font-light text-mute">
-            Empezá por las lámparas: cambiar la luz es lo que más cambia una
+            Empieza por las lámparas: cambiar la luz es lo que más cambia una
             casa.
           </p>
           <Link
@@ -144,7 +144,7 @@ export default function CartPageClient({
                     siguiente paso.
                   </>
                 ) : (
-                  "Tenés envío gratis en este pedido."
+                  "Tienes envío gratis en este pedido."
                 )}
               </p>
               <Link

@@ -18,7 +18,7 @@ export default async function SiteFooter() {
             para lograrlo.
           </p>
           <p className="mt-6 text-[0.8rem] font-light leading-relaxed text-bone/60">
-            Bogotá · Anapoima · Villeta
+            Bogotá · Tierra caliente
             <br />
             Colombia
           </p>
@@ -74,7 +74,7 @@ export default async function SiteFooter() {
         </div>
 
         <div className="md:col-span-4">
-          <h3 className="eyebrow text-bone/50">Escribinos</h3>
+          <h3 className="eyebrow text-bone/50">Escríbenos</h3>
           <ul className="mt-5 space-y-2.5 text-[0.88rem] font-light">
             <li>
               <a href={wa} className="link-underline" rel="noopener noreferrer" target="_blank">

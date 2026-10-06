@@ -35,8 +35,8 @@ export default async function ConfirmacionPage({ searchParams }: Search) {
     : pending
       ? "Algunos medios de pago tardan unos minutos en confirmarse. Apenas se apruebe te escribimos."
       : tx
-        ? "No se hizo ningún cobro. Podés intentar de nuevo con otro medio de pago o escribirnos y lo resolvemos."
-        : "Si ya hiciste el pago, escribinos con tu número de referencia y lo verificamos.";
+        ? "No se hizo ningún cobro. Puedes intentar de nuevo con otro medio de pago o escribirnos y lo resolvemos."
+        : "Si ya hiciste el pago, escríbenos con tu número de referencia y lo verificamos.";
 
   return (
     <div className="shell py-24 md:py-32">

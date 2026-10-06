@@ -92,6 +92,31 @@ export default function ProjectForm({
         </section>
 
         <section className="mt-14 border-t border-line pt-10">
+          <h2 className="font-display text-2xl font-light">Testimonio</h2>
+          <p className="mt-2 text-[0.85rem] font-light text-mute">
+            Opcional. Una frase de quien vive el espacio; se ve debajo del
+            texto del proyecto.
+          </p>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2">
+            <Field label="Frase" wide>
+              <textarea
+                name="testimonialQuote"
+                rows={3}
+                defaultValue={project?.testimonial?.quote}
+                className={`${input} resize-y`}
+              />
+            </Field>
+            <Field label="Quién lo dice" hint='Ej.: "Familia Pérez, Bogotá".'>
+              <input
+                name="testimonialAuthor"
+                defaultValue={project?.testimonial?.author}
+                className={input}
+              />
+            </Field>
+          </div>
+        </section>
+
+        <section className="mt-14 border-t border-line pt-10">
           <h2 className="font-display text-2xl font-light">Foto de portada</h2>
           <p className="mt-2 text-[0.85rem] font-light text-mute">
             Se ve en la grilla de /proyectos, en el home si el proyecto está
@@ -121,6 +146,16 @@ export default function ProjectForm({
 
       <aside className="lg:col-span-4">
         <div className="space-y-5 border border-line bg-bone p-6 lg:sticky lg:top-8">
+          <label className="flex items-center gap-3 text-[0.87rem] font-light">
+            <input
+              type="checkbox"
+              name="published"
+              defaultChecked={!project?.draft}
+              className="h-[15px] w-[15px] accent-[#2c261e]"
+            />
+            Publicado (visible en el sitio)
+          </label>
+
           <label className="flex items-center gap-3 text-[0.87rem] font-light">
             <input
               type="checkbox"

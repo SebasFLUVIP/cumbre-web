@@ -130,7 +130,7 @@ export default function LeadForm({
         </label>
         <select id="lf-city" name="city" required defaultValue="" className={field}>
           <option value="" disabled>
-            Elegí una opción
+            Elige una opción
           </option>
           {CIUDADES.map((c) => (
             <option key={c} value={c}>
@@ -142,7 +142,7 @@ export default function LeadForm({
 
       <div className="sm:col-span-2">
         <label className={label} htmlFor="lf-service">
-          Qué necesitás
+          Qué necesitas
         </label>
         <select
           id="lf-service"
@@ -152,7 +152,7 @@ export default function LeadForm({
           className={field}
         >
           <option value="" disabled>
-            Elegí una opción
+            Elige una opción
           </option>
           {SERVICIOS.map((s) => (
             <option key={s} value={s}>
@@ -182,7 +182,7 @@ export default function LeadForm({
             </label>
             <select id="lf-budget" name="budget" defaultValue="" className={field}>
               <option value="" disabled>
-                Elegí un rango
+                Elige un rango
               </option>
               {PRESUPUESTOS.map((b) => (
                 <option key={b} value={b}>
@@ -194,11 +194,11 @@ export default function LeadForm({
 
           <div className="sm:col-span-1">
             <label className={label} htmlFor="lf-timeline">
-              Cuándo querés empezar
+              Cuándo quieres empezar
             </label>
             <select id="lf-timeline" name="timeline" defaultValue="" className={field}>
               <option value="" disabled>
-                Elegí una opción
+                Elige una opción
               </option>
               {TIEMPOS.map((t) => (
                 <option key={t} value={t}>
@@ -212,7 +212,7 @@ export default function LeadForm({
 
       <div className="sm:col-span-2">
         <label className={label} htmlFor="lf-message">
-          Contanos un poco más
+          Cuéntanos un poco más
         </label>
         <textarea
           id="lf-message"
@@ -246,7 +246,7 @@ export default function LeadForm({
         </p>
         {state === "error" && (
           <p role="alert" className="text-[0.8rem] text-clay-deep">
-            No se pudo enviar. Probá de nuevo o escribinos por WhatsApp.
+            No se pudo enviar. Prueba de nuevo o escríbenos por WhatsApp.
           </p>
         )}
       </div>

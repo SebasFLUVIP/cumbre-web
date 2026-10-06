@@ -5,7 +5,7 @@ import { getSettings } from "@/lib/store";
 export const metadata: Metadata = {
   title: "Contacto",
   description:
-    "Escribinos por WhatsApp o correo. Atendemos Bogotá, Anapoima, Villeta y envíos a toda Colombia.",
+    "Escríbenos por WhatsApp o correo. Atendemos Bogotá, la Sabana y tierra caliente, con envíos a toda Colombia.",
   alternates: { canonical: "/contacto" },
 };
 
@@ -21,7 +21,7 @@ export default async function ContactoPage() {
             Hablemos de tu casa
           </h1>
           <p className="mt-6 text-[1.05rem] font-light leading-relaxed text-mute">
-            Escribinos por donde te quede más cómodo. Respondemos en menos de 24
+            Escríbenos por donde te quede más cómodo. Respondemos en menos de 24
             horas hábiles.
           </p>
 
@@ -35,7 +35,7 @@ export default async function ContactoPage() {
                   rel="noopener noreferrer"
                   className="font-display text-2xl font-light link-underline"
                 >
-                  Escribinos ahora
+                  Escríbenos ahora
                 </a>
               </dd>
             </div>
@@ -66,7 +66,7 @@ export default async function ContactoPage() {
             <div>
               <dt className="eyebrow">Dónde trabajamos</dt>
               <dd className="mt-2 text-[1rem] font-light leading-relaxed text-mute">
-                Bogotá y la sabana · Anapoima · Villeta
+                Bogotá, la Sabana y tierra caliente
                 <br />
                 Envíos de tienda a toda Colombia.
               </dd>
@@ -77,7 +77,7 @@ export default async function ContactoPage() {
         <div className="lg:col-span-7">
           <div className="border border-line bg-paper p-7 md:p-10">
             <h2 className="font-display text-2xl font-light">
-              Contanos qué necesitás
+              Cuéntanos qué necesitas
             </h2>
             <div className="mt-7">
               <LeadForm source="contacto" />

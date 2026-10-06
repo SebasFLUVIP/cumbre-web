@@ -8,8 +8,8 @@ export default function NotFound() {
         Esta página no existe
       </h1>
       <p className="mt-5 max-w-md text-[1.02rem] font-light leading-relaxed text-mute">
-        Puede que la hayamos movido o que el enlace esté mal escrito. Volvé a la
-        tienda o contanos qué estabas buscando.
+        Puede que la hayamos movido o que el enlace esté mal escrito. Vuelve a la
+        tienda o cuéntanos qué estabas buscando.
       </p>
       <div className="mt-10 flex flex-wrap justify-center gap-4">
         <Link

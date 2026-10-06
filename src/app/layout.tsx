@@ -33,12 +33,12 @@ export const metadata: Metadata = {
     template: "%s · Cumbre",
   },
   description:
-    "Estudio de interiorismo y tienda de decoración. Proyectos integrales, muebles a medida y objetos pensados para sumar calidez a tu casa. Bogotá, Anapoima y Villeta.",
+    "Estudio de interiorismo y tienda de decoración. Proyectos integrales, muebles a medida y objetos pensados para sumar calidez a tu casa. Bogotá y tierra caliente.",
   keywords: [
     "diseño de interiores Bogotá",
     "decoración Colombia",
     "muebles a medida Bogotá",
-    "interiorismo Anapoima",
+    "interiorismo tierra caliente",
     "remodelación casa de campo",
     "lámparas artesanales Colombia",
   ],

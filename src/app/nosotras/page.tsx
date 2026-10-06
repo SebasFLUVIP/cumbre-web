@@ -186,7 +186,7 @@ export default function NosotrasPage() {
               href="/servicios#hablemos"
               className="bg-ink px-8 py-4 text-[0.7rem] uppercase tracking-[0.2em] text-bone transition-colors hover:bg-espresso"
             >
-              Contanos tu proyecto
+              Cuéntanos tu proyecto
             </Link>
             <Link
               href="/tienda"

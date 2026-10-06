@@ -201,6 +201,7 @@ export async function saveSettingsAction(formData: FormData) {
   await requireAdmin();
   const current = await getSettings();
   const next: Settings = {
+    ...current,
     usdToCop: num(formData, "usdToCop") || current.usdToCop,
     defaultMarkup: num(formData, "defaultMarkup") || current.defaultMarkup,
     amazonDeliveryDays:
@@ -213,9 +214,11 @@ export async function saveSettingsAction(formData: FormData) {
     email: str(formData, "email") || current.email,
     instagram: str(formData, "instagram").replace(/^@/, "") || current.instagram,
     calendarUrl: str(formData, "calendarUrl") || undefined,
+    asesoriaPuntualPrice: str(formData, "asesoriaPuntualPrice") || undefined,
   };
   await saveSettings(next);
   revalidatePath("/admin/ajustes");
+  revalidatePath("/servicios");
   revalidatePath("/", "layout");
   redirect("/admin/ajustes?guardado=1");
 }
@@ -304,6 +307,13 @@ export async function upsertProject(formData: FormData) {
     cover,
     gallery,
     featured: formData.get("featured") === "on",
+    draft: formData.get("published") === "on" ? undefined : true,
+    testimonial: str(formData, "testimonialQuote")
+      ? {
+          quote: str(formData, "testimonialQuote"),
+          author: str(formData, "testimonialAuthor") || undefined,
+        }
+      : undefined,
   };
 
   const projects = await getAllProjects();

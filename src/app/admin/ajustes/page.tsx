@@ -114,6 +114,18 @@ export default async function AdminAjustes({
         </section>
 
         <section>
+          <h2 className="font-display text-2xl font-light">Servicios</h2>
+          <div className="mt-6 grid gap-5 sm:grid-cols-3">
+            <Field
+              label="Precio de la asesoría puntual"
+              name="asesoriaPuntualPrice"
+              defaultValue={s.asesoriaPuntualPrice ?? ""}
+              hint='Texto libre, ej.: "Desde $350.000". Vacío = no se muestra precio.'
+            />
+          </div>
+        </section>
+
+        <section>
           <h2 className="font-display text-2xl font-light">Contacto</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-3">
             <Field

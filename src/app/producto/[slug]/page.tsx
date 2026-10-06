@@ -62,7 +62,12 @@ export default async function ProductoPage({ params }: Params) {
   if (!product) notFound();
 
   const related = all
-    .filter((p) => p.category === product.category && p.id !== product.id)
+    .filter(
+      (p) =>
+        p.category === product.category &&
+        p.id !== product.id &&
+        p.images.length > 0
+    )
     .slice(0, 4);
 
   const jsonLd = {
@@ -137,7 +142,7 @@ export default async function ProductoPage({ params }: Params) {
               </li>
               <li className="flex gap-3">
                 <span className="text-clay-deep">—</span>
-                Pagá con tarjeta, PSE o Nequi
+                Paga con tarjeta, PSE o Nequi
               </li>
               {product.madeToOrder && (
                 <li className="flex gap-3">
@@ -162,10 +167,10 @@ export default async function ProductoPage({ params }: Params) {
 
             <div className="mt-8 border border-line bg-sand/40 p-6">
               <p className="font-display text-xl font-light">
-                ¿La querés en otra medida o acabado?
+                ¿La quieres en otra medida o acabado?
               </p>
               <p className="mt-2 text-[0.95rem] font-light leading-relaxed text-mute">
-                Fabricamos a medida. Escribinos con la medida exacta y te
+                Fabricamos a medida. Escríbenos con la medida exacta y te
                 cotizamos sin compromiso.
               </p>
               <div className="mt-5 flex flex-wrap gap-4">

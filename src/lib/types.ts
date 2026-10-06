@@ -88,6 +88,8 @@ export type Settings = {
   /** Link de agenda (Calendly, Cal.com, etc.) para la primera consulta.
    *  Vacío = el CTA cae de vuelta a la sección de contacto del sitio. */
   calendarUrl?: string;
+  /** Texto libre, ej. "Desde $350.000". Si está, se muestra en Servicios. */
+  asesoriaPuntualPrice?: string;
 
   // ── Contenido editable del home ──
   // Todos opcionales: si faltan, el home usa el copy de siempre como default.
@@ -162,4 +164,8 @@ export type Project = {
   cover: string;
   gallery: { src: string; caption?: string; ratio?: "tall" | "wide" | "sq" }[];
   featured?: boolean;
+  /** true = borrador: no se muestra en el sitio público. Ausente = publicado. */
+  draft?: boolean;
+  /** Frase de la clienta o cliente, opcional. */
+  testimonial?: { quote: string; author?: string };
 };

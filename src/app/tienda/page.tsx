@@ -13,7 +13,8 @@ export const metadata: Metadata = {
 };
 
 export default async function TiendaPage() {
-  const products = await getPublicProducts();
+  // Mientras un producto no tenga foto, no se muestra en el catálogo.
+  const products = (await getPublicProducts()).filter((p) => p.images.length > 0);
 
   return (
     <>

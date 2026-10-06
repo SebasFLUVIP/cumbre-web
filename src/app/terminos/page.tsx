@@ -29,7 +29,7 @@ export default function Page() {
         {
           h: "Disponibilidad",
           p: [
-            "El inventario mostrado es referencial. Si una pieza se agota entre el momento de la compra y el despacho, te avisamos dentro de las 24 horas hábiles siguientes y podés elegir entre esperar la reposición, cambiarla por otra o recibir el reembolso completo.",
+            "El inventario mostrado es referencial. Si una pieza se agota entre el momento de la compra y el despacho, te avisamos dentro de las 24 horas hábiles siguientes y puedes elegir entre esperar la reposición, cambiarla por otra o recibir el reembolso completo.",
           ],
         },
         {

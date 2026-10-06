@@ -122,7 +122,7 @@ export default function CheckoutClient({
         <p className="mt-6 border border-clay/40 bg-clay/5 px-5 py-4 text-[0.85rem] font-light leading-relaxed text-clay-deep">
           La pasarela de pagos todavía no tiene las llaves de Wompi cargadas.
           Agregalas en <code className="font-mono text-[0.8rem]">.env.local</code>{" "}
-          para poder cobrar. Mientras tanto, podés recibir el pedido por
+          para poder cobrar. Mientras tanto, puedes recibir el pedido por
           WhatsApp.
         </p>
       )}
@@ -195,7 +195,7 @@ export default function CheckoutClient({
               <div>
                 <label className={label} htmlFor="ck-department">Departamento</label>
                 <select id="ck-department" name="department" defaultValue="" required className={field}>
-                  <option value="" disabled>Elegí uno</option>
+                  <option value="" disabled>Elige uno</option>
                   {DEPARTAMENTOS.map((d) => (
                     <option key={d} value={d}>{d}</option>
                   ))}

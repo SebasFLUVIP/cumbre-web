@@ -19,7 +19,7 @@ export default function Page() {
           p: [
             "Cada producto muestra su tiempo de entrega en la ficha. Las piezas marcadas como entrega inmediata salen de nuestro depósito en Bogotá dentro de los dos días hábiles siguientes al pago.",
             "Las piezas importadas se entregan en 8 días hábiles. Los muebles hechos a medida tienen tiempos de fabricación de 15 a 40 días hábiles según la pieza, y el plazo exacto queda confirmado por escrito antes de empezar.",
-            "Si un pedido combina piezas con tiempos distintos, coordinamos por WhatsApp si preferís recibir todo junto o en varias entregas.",
+            "Si un pedido combina piezas con tiempos distintos, coordinamos por WhatsApp si prefieres recibir todo junto o en varias entregas.",
           ],
         },
         {
@@ -32,9 +32,9 @@ export default function Page() {
         {
           h: "Cambios y devoluciones",
           p: [
-            "Tenés cinco días hábiles desde que recibís el pedido para pedir un cambio o devolución de productos de catálogo, siempre que estén sin uso y en su empaque original. El costo del transporte de devolución corre por cuenta del comprador, salvo que la pieza haya llegado con defecto.",
+            "Tienes cinco días hábiles desde que recibes el pedido para pedir un cambio o devolución de productos de catálogo, siempre que estén sin uso y en su empaque original. El costo del transporte de devolución corre por cuenta del comprador, salvo que la pieza haya llegado con defecto.",
             "Las piezas hechas a medida no admiten devolución por cambio de opinión, porque se fabrican específicamente para tu espacio. Sí respondemos por defectos de fabricación.",
-            "Si algo llega roto o con defecto, escribinos dentro de las 48 horas siguientes con fotos y lo reemplazamos o reparamos sin costo.",
+            "Si algo llega roto o con defecto, escríbenos dentro de las 48 horas siguientes con fotos y lo reemplazamos o reparamos sin costo.",
           ],
         },
         {

@@ -13,7 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // El sitemap se genera igual con las rutas fijas.
   }
   try {
-    projects = await getAllProjects();
+    projects = (await getAllProjects()).filter((p) => !p.draft);
   } catch {
     // Idem.
   }

@@ -8,7 +8,7 @@ import LeadForm from "@/components/LeadForm";
 export const metadata: Metadata = {
   title: "Proyectos",
   description:
-    "Proyectos de interiorismo y remodelación en Bogotá, Anapoima y Villeta. Diseño integral, muebles a medida y montaje.",
+    "Proyectos de interiorismo y remodelación en Bogotá y tierra caliente. Diseño integral, muebles a medida y montaje.",
   alternates: { canonical: "/proyectos" },
 };
 
@@ -41,7 +41,7 @@ const PROCESO = [
 ];
 
 export default async function ProyectosPage() {
-  const projects = await getAllProjects().catch(() => []);
+  const projects = (await getAllProjects().catch(() => [])).filter((p) => !p.draft);
   const hero = projects.find((p) => p.featured) ?? projects[0];
   const rest = projects.filter((p) => p.slug !== hero?.slug);
 
@@ -164,7 +164,7 @@ export default async function ProyectosPage() {
           <div className="lg:col-span-5">
             <p className="eyebrow">Tu proyecto</p>
             <h2 className="display mt-4 text-[2.1rem] md:text-[2.9rem]">
-              Contanos qué querés resolver
+              Cuéntanos qué quieres resolver
             </h2>
             <p className="mt-6 text-[1.02rem] font-light leading-relaxed text-mute">
               No hace falta que tengas todo claro. Con una foto del espacio y

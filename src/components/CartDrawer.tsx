@@ -67,7 +67,7 @@ export default function CartDrawer({
               Todavía no hay nada acá
             </p>
             <p className="text-sm font-light text-mute">
-              Empezá por las lámparas: es lo que más cambia una casa.
+              Empieza por las lámparas: es lo que más cambia una casa.
             </p>
             <Link
               href="/tienda"
@@ -88,7 +88,7 @@ export default function CartDrawer({
                 </p>
               ) : (
                 <p className="border-b border-line py-4 text-center text-[0.72rem] font-light text-clay-deep">
-                  Tenés envío gratis
+                  Tienes envío gratis
                 </p>
               )}
               <ul className="divide-y divide-line">

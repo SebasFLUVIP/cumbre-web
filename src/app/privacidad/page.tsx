@@ -15,7 +15,7 @@ export default function Page() {
         {
           h: "Qué datos recogemos",
           p: [
-            "Cuando llenás un formulario de contacto o hacés una compra, recogemos tu nombre, correo, teléfono, ciudad, dirección de envío y documento de identidad. Cuando pedís una cotización de proyecto, también el tipo de servicio, los espacios, el rango de inversión y los tiempos que nos indiques.",
+            "Cuando llenas un formulario de contacto o haces una compra, recogemos tu nombre, correo, teléfono, ciudad, dirección de envío y documento de identidad. Cuando pides una cotización de proyecto, también el tipo de servicio, los espacios, el rango de inversión y los tiempos que nos indiques.",
             "No recogemos ni almacenamos datos de tarjetas de crédito. Esa información la procesa directamente Wompi.",
           ],
         },
@@ -29,7 +29,7 @@ export default function Page() {
         {
           h: "Tus derechos",
           p: [
-            "De acuerdo con la Ley 1581 de 2012, podés conocer, actualizar, rectificar y suprimir tus datos personales, así como revocar la autorización de tratamiento. Para ejercer cualquiera de estos derechos, escribinos al correo de contacto y respondemos dentro de los plazos legales.",
+            "De acuerdo con la Ley 1581 de 2012, puedes conocer, actualizar, rectificar y suprimir tus datos personales, así como revocar la autorización de tratamiento. Para ejercer cualquiera de estos derechos, escríbenos al correo de contacto y respondemos dentro de los plazos legales.",
           ],
         },
         {

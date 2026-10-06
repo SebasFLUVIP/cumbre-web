@@ -183,7 +183,7 @@ export default function SiteHeader({
               href="/servicios#a-medida"
               className="col-span-2 text-right text-[0.7rem] uppercase tracking-[0.18em] text-clay-deep link-underline"
             >
-              ¿Lo necesitás a medida? Hablemos
+              ¿Lo necesitas a medida? Hablemos
             </Link>
           </div>
         </div>

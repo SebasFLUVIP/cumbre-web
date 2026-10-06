@@ -78,6 +78,11 @@ export default async function AdminProyectos({
                   C
                 </span>
               )}
+              {p.draft && (
+                <span className="absolute right-2 top-2 bg-bone/90 px-2 py-1 text-[0.6rem] uppercase tracking-[0.14em] text-ink">
+                  Borrador
+                </span>
+              )}
               {p.featured && (
                 <span className="absolute left-2 top-2 bg-ink/80 px-2 py-1 text-[0.6rem] uppercase tracking-[0.14em] text-bone">
                   Destacado

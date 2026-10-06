@@ -30,7 +30,7 @@ export default async function CategoriaPage({ params }: Params) {
   if (!cat) notFound();
 
   const products = (await getPublicProducts()).filter(
-    (p) => p.category === cat.id
+    (p) => p.category === cat.id && p.images.length > 0
   );
 
   return (
@@ -76,7 +76,7 @@ export default async function CategoriaPage({ params }: Params) {
               Estamos armando esta categoría
             </p>
             <p className="mx-auto mt-4 max-w-md text-[0.92rem] font-light text-mute">
-              Escribinos y te contamos qué tenemos disponible o lo hacemos a
+              Escríbenos y te contamos qué tenemos disponible o lo hacemos a
               medida.
             </p>
             <Link
@@ -95,11 +95,11 @@ export default async function CategoriaPage({ params }: Params) {
         <div className="shell flex flex-col items-start gap-6 py-16 md:flex-row md:items-center md:justify-between">
           <div>
             <h2 className="display text-[1.8rem] md:text-[2.3rem]">
-              ¿No encontrás la medida exacta?
+              ¿No encuentras la medida exacta?
             </h2>
             <p className="mt-3 max-w-xl text-[0.93rem] font-light text-mute">
-              Fabricamos a medida en madera, tapizado y fibras naturales. Contanos
-              qué necesitás y te cotizamos.
+              Fabricamos a medida en madera, tapizado y fibras naturales. Cuéntanos
+              qué necesitas y te cotizamos.
             </p>
           </div>
           <Link

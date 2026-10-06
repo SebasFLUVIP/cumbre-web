@@ -8,7 +8,7 @@ import { getSettings } from "@/lib/store";
 export const metadata: Metadata = {
   title: "Servicios",
   description:
-    "Proyecto integral de interiorismo, asesoría de diseño, remodelaciones y muebles a medida. Bogotá, Anapoima y Villeta.",
+    "Proyecto integral de interiorismo, asesoría de diseño, remodelaciones y muebles a medida. Bogotá y tierra caliente.",
   alternates: { canonical: "/servicios" },
 };
 
@@ -44,6 +44,15 @@ const SERVICIOS: Servicio[] = [
     ],
     para: "Casas y apartamentos completos, propiedades nuevas, remodelaciones y casas de campo.",
     image: "/img/proyectos/payande-terraza-wide.webp",
+  },
+  {
+    id: "hogar-listo",
+    title: "Hogar listo en Colombia",
+    lead: "Llegas a Colombia. Tu casa ya está lista.",
+    body: [
+      "Nos encargamos del diseño, mobiliario, compras, decoración e instalación para que encuentres tu nuevo hogar completamente preparado para vivir.",
+    ],
+    image: "/img/proyectos/sala-sillas-rayas-wide.webp",
   },
   {
     id: "decoracion-styling",
@@ -158,15 +167,6 @@ const SERVICIOS: Servicio[] = [
     para: "Comedores, mesas, espaldares, consolas, bibliotecas, escritorios, muebles de TV, closets, bancas y mobiliario de exterior.",
     image: "/img/proyectos/estudio-a-medida-tall.webp",
   },
-  {
-    id: "hogar-listo",
-    title: "Hogar listo en Colombia",
-    lead: "Llegas a Colombia. Tu casa ya está lista.",
-    body: [
-      "Nos encargamos del diseño, mobiliario, compras, decoración e instalación para que encuentres tu nuevo hogar completamente preparado para vivir.",
-    ],
-    image: "/img/proyectos/sala-sillas-rayas-wide.webp",
-  },
 ];
 
 const FAQ = [
@@ -255,6 +255,11 @@ export default async function ServiciosPage() {
                   {sv.lead}
                 </p>
               )}
+              {sv.id === "asesoria-puntual" && s.asesoriaPuntualPrice && (
+                <p className="mt-4 font-display text-[1.5rem] font-light text-clay-deep">
+                  {s.asesoriaPuntualPrice}
+                </p>
+              )}
               {sv.body.map((para) => (
                 <p
                   key={para}
@@ -333,11 +338,11 @@ export default async function ServiciosPage() {
           <div className="lg:col-span-5">
             <p className="eyebrow">Hablemos</p>
             <h2 className="display mt-4 text-[2.2rem] md:text-[3rem]">
-              Contanos qué tenés en mente
+              Cuéntanos qué tienes en mente
             </h2>
             <p className="mt-6 text-[1.02rem] font-light leading-relaxed text-mute">
               La primera llamada o videollamada no tiene costo. Queremos
-              conocer tu espacio, entender qué necesitás y contarte cómo
+              conocer tu espacio, entender qué necesitas y contarte cómo
               podemos ayudarte.
             </p>
             <p className="mt-4 text-[1.02rem] font-light leading-relaxed text-mute">

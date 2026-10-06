@@ -10,7 +10,7 @@ type Params = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
   try {
-    return (await getAllProjects()).map((p) => ({ slug: p.slug }));
+    return (await getAllProjects()).filter((p) => !p.draft).map((p) => ({ slug: p.slug }));
   } catch {
     return [];
   }
@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const p = await getProjectBySlug(slug).catch(() => null);
-  if (!p) return {};
+  if (!p || p.draft) return {};
   return {
     title: p.title,
     description: p.summary,
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function ProyectoPage({ params }: Params) {
   const { slug } = await params;
   const p = await getProjectBySlug(slug).catch(() => null);
-  if (!p) notFound();
+  if (!p || p.draft) notFound();
 
   return (
     <>
@@ -70,6 +70,18 @@ export default async function ProyectoPage({ params }: Params) {
                 </p>
               ))}
             </div>
+            {p.testimonial && (
+              <blockquote className="mt-12 border-l border-clay pl-6">
+                <p className="display text-[1.4rem] leading-[1.4] md:text-[1.75rem]">
+                  “{p.testimonial.quote}”
+                </p>
+                {p.testimonial.author && (
+                  <footer className="mt-4 text-[0.7rem] uppercase tracking-[0.18em] text-mute">
+                    {p.testimonial.author}
+                  </footer>
+                )}
+              </blockquote>
+            )}
           </div>
           <aside className="lg:col-span-4 lg:col-start-9">
             <h2 className="eyebrow">Qué hicimos</h2>
@@ -124,11 +136,11 @@ export default async function ProyectoPage({ params }: Params) {
           <div className="lg:col-span-5">
             <p className="eyebrow">Siguiente</p>
             <h2 className="display mt-4 text-[2.1rem] md:text-[2.9rem]">
-              ¿Querés algo así en tu casa?
+              ¿Quieres algo así en tu casa?
             </h2>
             <p className="mt-6 text-[1.02rem] font-light leading-relaxed text-mute">
               Cada proyecto empieza igual: una llamada sin costo para entender
-              el espacio y lo que necesitás.
+              el espacio y lo que necesitas.
             </p>
             <Link
               href="/proyectos"
