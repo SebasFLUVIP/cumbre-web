@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { requireAdmin } from "@/lib/auth";
 import {
+  deleteProductById,
   getAllProducts,
   getAllProjects,
   getLeads,
@@ -152,11 +153,13 @@ export async function deleteProduct(formData: FormData) {
   const id = String(formData.get("id") ?? "");
   const products = await getAllProducts();
   const removed = products.find((p) => p.id === id);
-  await saveProducts(products.filter((p) => p.id !== id));
+  if (!removed) redirect("/admin/productos?eliminado=1");
+  await deleteProductById(id);
   revalidatePath("/admin/productos");
   revalidatePath("/tienda");
-  if (removed) revalidatePath(`/tienda/${removed.category}`);
-  if (removed?.featured) revalidatePath("/");
+  revalidatePath(`/tienda/${removed.category}`);
+  revalidatePath(`/producto/${removed.slug}`);
+  if (removed.featured) revalidatePath("/");
   redirect("/admin/productos?eliminado=1");
 }
 

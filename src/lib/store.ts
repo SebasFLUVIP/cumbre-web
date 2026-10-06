@@ -120,6 +120,18 @@ export async function saveProducts(products: Product[]): Promise<void> {
   await writeJson("catalog", products);
 }
 
+/** Borra un solo producto. No reescribe el resto del catálogo, así que no
+ *  puede resucitar productos borrados ni pisar ediciones simultáneas. */
+export async function deleteProductById(id: string): Promise<void> {
+  if (onDb()) {
+    const { error } = await supabase().from("products").delete().eq("id", id);
+    if (error) throw new Error(`No se pudo eliminar el producto: ${error.message}`);
+    return;
+  }
+  const all = await getAllProducts();
+  await writeJson("catalog", all.filter((p) => p.id !== id));
+}
+
 /**
  * Quita el bloque `supplier` antes de que un producto cruce hacia el navegador.
  * El link de compra y el costo son internos: si viajan al cliente quedan en el
