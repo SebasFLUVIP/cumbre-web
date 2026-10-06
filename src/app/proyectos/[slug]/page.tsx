@@ -49,7 +49,7 @@ export default async function ProyectoPage({ params }: Params) {
         />
         <div className="shell relative flex h-full flex-col justify-end pb-16 md:pb-24">
           <p className="eyebrow text-bone/80">
-            {p.category} · {p.location} · {p.year}
+            {[p.category, p.location, p.year].filter(Boolean).join(" · ")}
           </p>
           <h1 className="display mt-4 max-w-4xl text-[2.7rem] text-bone md:text-[4.5rem]">
             {p.title}
@@ -60,9 +60,11 @@ export default async function ProyectoPage({ params }: Params) {
       <section className="shell py-20 md:py-28">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <p className="display text-[1.5rem] leading-[1.35] md:text-[2rem]">
-              {p.summary}
-            </p>
+            {p.summary && (
+              <p className="display text-[1.5rem] leading-[1.35] md:text-[2rem]">
+                {p.summary}
+              </p>
+            )}
             <div className="mt-10 space-y-6">
               {p.body.map((para, i) => (
                 <p key={i} className="text-[1.05rem] font-light leading-[1.85] text-mute">
@@ -83,6 +85,7 @@ export default async function ProyectoPage({ params }: Params) {
               </blockquote>
             )}
           </div>
+          {p.scope.length > 0 && (
           <aside className="lg:col-span-4 lg:col-start-9">
             <h2 className="eyebrow">Qué hicimos</h2>
             <ul className="mt-5 space-y-3 border-t border-line pt-5">
@@ -93,6 +96,7 @@ export default async function ProyectoPage({ params }: Params) {
               ))}
             </ul>
           </aside>
+          )}
         </div>
       </section>
 

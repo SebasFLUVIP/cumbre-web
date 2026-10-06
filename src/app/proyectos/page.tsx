@@ -90,16 +90,18 @@ export default async function ProyectosPage() {
             <div className="mt-8 grid gap-6 md:grid-cols-12">
               <div className="md:col-span-7">
                 <p className="eyebrow">
-                  {hero.category} · {hero.location} · {hero.year}
+                  {[hero.category, hero.location, hero.year].filter(Boolean).join(" · ")}
                 </p>
                 <h2 className="display mt-3 text-[2.1rem] md:text-[2.9rem]">
                   {hero.title}
                 </h2>
               </div>
               <div className="md:col-span-5">
-                <p className="text-[1.02rem] font-light leading-relaxed text-mute">
-                  {hero.summary}
-                </p>
+                {hero.summary && (
+                  <p className="text-[1.02rem] font-light leading-relaxed text-mute">
+                    {hero.summary}
+                  </p>
+                )}
                 <span className="mt-5 inline-block text-[0.7rem] uppercase tracking-[0.18em] link-underline">
                   Ver el proyecto
                 </span>
@@ -123,7 +125,7 @@ export default async function ProyectosPage() {
                     />
                   </div>
                   <p className="eyebrow mt-5">
-                    {p.location} · {p.year}
+                    {[p.location, p.year].filter(Boolean).join(" · ")}
                   </p>
                   <h3 className="display mt-2 text-[1.8rem]">{p.title}</h3>
                 </Link>

@@ -228,6 +228,9 @@ export default async function HomePage() {
                   className="object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
                 />
               </div>
+              <p className="mt-4 text-[0.72rem] uppercase tracking-[0.18em] text-mute">
+                {project.title}
+              </p>
             </Link>
           </Reveal>
           <Reveal delay={120} className="lg:col-span-5">

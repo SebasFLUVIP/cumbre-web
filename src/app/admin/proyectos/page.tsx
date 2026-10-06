@@ -90,7 +90,7 @@ export default async function AdminProyectos({
               )}
             </div>
             <p className="mt-4 text-[0.78rem] font-light text-mute">
-              {p.location} · {p.year}
+              {[p.location, p.year].filter(Boolean).join(" · ")}
             </p>
             <h2 className="mt-1 font-display text-xl font-light group-hover:text-clay-deep">
               {p.title}
