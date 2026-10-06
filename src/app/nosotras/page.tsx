@@ -44,16 +44,36 @@ export default function NosotrasPage() {
             </h1>
             <div className="mt-7 h-px w-16 bg-clay" />
             <p className="mt-8 text-[1.05rem] font-light leading-relaxed text-espresso">
-              Luisa y Victoria. Diseñamos casas en Bogotá y en tierra
-              caliente, hacemos muebles a medida y elegimos, una por una, las
-              piezas que vendemos en la tienda. Nos mueve lo mismo desde el
-              principio: lo esencial, lo hecho a mano y lo que dura.
+              Luisa y Victoria. Creamos y transformamos espacios para que se
+              vean bien, funcionen mejor y se sientan propios.
             </p>
-            <p className="mt-5 text-[1.02rem] font-light leading-relaxed text-mute">
-              Nos metemos en todo: la distribución, la luz, el mueble que hay
-              que mandar a hacer, el proveedor que se demora. Preferimos
-              entregar la casa vestida y lista antes que dejar una carpeta de
-              planos y desaparecer.
+            <div className="mt-5 space-y-5 text-[1.02rem] font-light leading-relaxed text-mute">
+              <p>
+                Trabajamos en proyectos de decoración de interiores, styling y
+                remodelación. Diseñamos muebles a medida y acompañamos a
+                nuestros clientes en la elección y compra de cada pieza que
+                completa un espacio.
+              </p>
+              <p>
+                Nos mueve lo mismo desde el principio: los materiales nobles,
+                lo hecho a mano, los detalles bien pensados y las cosas hechas
+                para durar.
+              </p>
+              <p>
+                Nos involucramos en todo el proceso. Podemos ayudarte a
+                transformar un ambiente, acompañarte en decisiones puntuales o
+                encargarnos de un proyecto completo, desde la primera idea
+                hasta el último detalle.
+              </p>
+              <p>
+                Para quienes llegan a vivir a Colombia, ofrecemos además un
+                servicio integral: diseñamos, amoblamos y decoramos tu hogar
+                para dejarlo listo para vivir.
+              </p>
+            </div>
+            <p className="mt-5 text-[1.02rem] font-light leading-relaxed text-espresso">
+              Porque para nosotras diseñar no es solo hacer que un espacio se
+              vea bien. Es hacer que funcione para quien lo vive.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
@@ -87,28 +107,26 @@ export default function NosotrasPage() {
 
       <section className="shell pb-20 md:pb-28">
         <Reveal className="mx-auto max-w-3xl">
-          <p className="display text-[1.6rem] leading-[1.35] md:text-[2.2rem]">
-            Cumbre no es una tendencia que seguimos. Es la manera en que ya
-            nos gustaba trabajar.
+          <p className="eyebrow">Nuestra manera de hacer las cosas</p>
+          <p className="display mt-6 text-[1.6rem] leading-[1.35] md:text-[2.2rem]">
+            CUMBRE no es una tendencia que seguimos. Es la manera en que
+            siempre nos gustó trabajar.
           </p>
           <div className="mt-10 space-y-6 text-[1.05rem] font-light leading-[1.85] text-mute">
             <p>
-              Te acompañamos en desarrollar proyectos integrales y asesorías de
-              diseño de interiores, para ayudarte a armar ambientes funcionales.
-              También hacemos tus muebles a medida y vendemos objetos de
-              decoración pensados para sumar calidez, estilo y personalidad a
-              cada rincón de tu casa.
+              Diseñamos y transformamos espacios combinando interiorismo,
+              decoración, styling, remodelación y muebles a medida. Nos
+              involucramos en cada detalle para crear espacios cálidos,
+              funcionales y pensados para quienes los viven.
             </p>
             <p>
-              Trabajamos sobre todo en Bogotá y en casas de campo en Anapoima y
-              Villeta. Son dos formas muy distintas de vivir —una casa de
-              ciudad y una casa de fin de semana— y nos gusta esa diferencia:
-              obliga a pensar cada proyecto desde cero en vez de repetir una
-              fórmula.
+              Trabajamos principalmente en Bogotá y tierra caliente, y también
+              acompañamos a quienes llegan a vivir a Colombia, dejando su
+              hogar diseñado, amoblado y listo para vivir.
             </p>
             <p className="text-espresso">
-              Creemos que tu casa tiene que contar tu historia. Contá con
-              nosotras para lograrlo.
+              No repetimos fórmulas. Cada casa, como cada persona, es
+              diferente.
             </p>
           </div>
         </Reveal>
@@ -149,8 +167,7 @@ export default function NosotrasPage() {
         <div className="shell relative flex h-full items-end pb-14 md:pb-20">
           <Reveal className="max-w-2xl">
             <p className="display text-[1.6rem] leading-[1.3] text-bone md:text-[2.3rem]">
-              No nos gusta que se note el trabajo. Nos gusta que se note
-              la casa.
+              El diseño no tiene que imponerse. Tiene que sentirse.
             </p>
             <p className="mt-6 text-[0.7rem] uppercase tracking-[0.22em] text-bone/70">
               Tita &amp; Vicky
